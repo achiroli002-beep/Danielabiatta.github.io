@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dott.ssa Daniela Biatta – Logopedista | [CITTÀ]</title>
+  <meta name="description" content="Dott.ssa Daniela Biatta, Logopedista. Percorsi personalizzati per bambini, adulti e anziani. Valutazione e trattamento di disturbi del linguaggio, voce, deglutizione e comunicazione.">
+  <meta property="og:title" content="Dott.ssa Daniela Biatta – Logopedista">
+  <meta property="og:description" content="Percorsi logopedici personalizzati per bambini, adulti e anziani. Studio a [CITTÀ] e online.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Dott.ssa Daniela Biatta – Logopedista",
+    "description": "Logopedista libera professionista. Valutazione e trattamento di disturbi del linguaggio, voce, deglutizione e comunicazione.",
+    "telephone": "[TELEFONO]",
+    "email": "[EMAIL]",
+    "address": { "@type": "PostalAddress", "streetAddress": "[INDIRIZZO]", "addressLocality": "[CITTÀ]", "addressCountry": "IT" },
+    "medicalSpecialty": "Logopedia"
+  }
+  </script>
+
+  <style>
+    /* === TOKENS === */
+    :root {
+      --sand: #F4EDE4;
+      --cream: #FBF8F3;
+      --white: #FEFCFA;
+      --text: #4A443D;
+      --text-light: #7A736B;
+      --accent: #C08552;
+      --accent-hover: #A5703F;
+      --accent-light: #D9A87A;
+      --accent-muted: #EAD8C4;
+      --border: #E0D5C8;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', -apple-system, sans-serif;
+      --ease: 0.3s ease;
+      --r-sm: 4px; --r-md: 12px; --r-lg: 24px; --r-full: 9999px;
+      --shadow: 0 4px 20px rgba(74,68,61,.10);
+    }
+
+    /* === RESET === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    body { font-family: var(--sans); color: var(--text); background: var(--cream); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* === TYPE === */
+    h1,h2,h3,h4 { font-family: var(--serif); font-weight: 400; line-height: 1.15; color: var(--text); }
+    h1 { font-size: clamp(3rem,8vw,6.5rem); letter-spacing:-.03em; }
+    h2 { font-size: clamp(2rem,4vw,3.2rem); }
+    h3 { font-size: clamp(1.3rem,2.5vw,1.8rem); }
+    p  { font-size: 1rem; line-height: 1.75; }
+
+    /* === LAYOUT === */
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 6rem 0; }
+    .section--alt { background: var(--sand); }
+    .section--dark { background: var(--text); color: var(--cream); }
+
+    .label {
+      display: block; font-size: .7rem; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: .75rem;
+    }
+
+    /* === SCROLL ANIM === */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal-left  { opacity: 0; transform: translateX(-22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal-right { opacity: 0; transform: translateX(22px);  transition: opacity .65s ease, transform .65s ease; }
+    .reveal.on, .reveal-left.on, .reveal-right.on { opacity: 1; transform: none; }
+
+    .stagger > * { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
+    .stagger.on > *:nth-child(1) { opacity:1;transform:none;transition-delay:.00s }
+    .stagger.on > *:nth-child(2) { opacity:1;transform:none;transition-delay:.10s }
+    .stagger.on > *:nth-child(3) { opacity:1;transform:none;transition-delay:.20s }
+    .stagger.on > *:nth-child(4) { opacity:1;transform:none;transition-delay:.30s }
+    .stagger.on > *:nth-child(5) { opacity:1;transform:none;transition-delay:.40s }
+    .stagger.on > *:nth-child(6) { opacity:1;transform:none;transition-delay:.50s }
+    .stagger.on > *:nth-child(7) { opacity:1;transform:none;transition-delay:.60s }
+    .stagger.on > *:nth-child(8) { opacity:1;transform:none;transition-delay:.70s }
+
+    /* === SKIP LINK === */
+    .skip { position: absolute; top: -40px; left: 1rem; background: var(--accent); color: #fff;
+      padding: .4rem 1rem; border-radius: 0 0 var(--r-sm) var(--r-sm); font-size: .85rem; z-index: 200; transition: top .2s; }
+    .skip:focus { top: 0; }
+
+    /* === NAV === */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.1rem 1.5rem; transition: background var(--ease), box-shadow var(--ease);
+    }
+    .nav.scrolled { background: rgba(251,248,243,.96); backdrop-filter: blur(8px); box-shadow: 0 1px 0 var(--border); }
+    .nav__inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo { font-family: var(--serif); font-size: 1.05rem; color: var(--text); line-height: 1.2; }
+    .nav__logo span { display: block; font-family: var(--sans); font-size: .62rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--text-light); }
+    .nav__links { display: flex; align-items: center; gap: 1.75rem; }
+    .nav__links a { font-size: .8rem; color: var(--text-light); transition: color var(--ease); }
+    .nav__links a:hover, .nav__links a:focus-visible { color: var(--accent); outline: none; }
+    .nav__cta {
+      font-size: .8rem !important; font-weight: 500 !important; color: #fff !important;
+      background: var(--accent); padding: .55rem 1.3rem; border-radius: var(--r-full);
+      transition: background var(--ease), transform var(--ease) !important;
+    }
+    .nav__cta:hover, .nav__cta:focus-visible { background: var(--accent-hover) !important; transform: translateY(-1px); }
+
+    .nav__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav__burger:focus-visible { outline: 2px solid var(--accent); border-radius: 3px; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 1px; transition: transform var(--ease), opacity var(--ease); }
+    .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav__mob { display: none; position: fixed; inset: 0; background: var(--cream); z-index: 99;
+      flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem;
+      opacity: 0; pointer-events: none; transition: opacity var(--ease); }
+    .nav__mob.open { display: flex; opacity: 1; pointer-events: all; }
+    .nav__mob a { font-family: var(--serif); font-size: 2.2rem; color: var(--text); transition: color var(--ease); }
+    .nav__mob a:hover { color: var(--accent); }
+    .nav__mob .mob-cta { font-family: var(--sans) !important; font-size: 1rem !important; background: var(--accent); color: #fff !important; padding: .75rem 2rem; border-radius: var(--r-full); margin-top: .5rem; }
+
+    @media (max-width: 780px) { .nav__links { display: none; } .nav__burger { display: flex; } }
+
+    /* === HERO === */
+    .hero { min-height: 100vh; padding-top: 5.5rem; display: grid; place-items: center; position: relative; overflow: hidden; }
+    .hero__blob {
+      position: absolute; top: -8%; right: -4%; width: 52%; max-width: 580px;
+      aspect-ratio: 1; background: var(--sand); border-radius: 62% 38% 46% 54%/60% 44% 56% 40%;
+      z-index: 0; opacity: .65; pointer-events: none;
+    }
+    .hero__blob2 {
+      position: absolute; bottom: -6%; left: -3%; width: 30%; max-width: 320px;
+      aspect-ratio: 1; background: var(--accent-muted); border-radius: 48% 52% 68% 32%/42% 50% 50% 58%;
+      z-index: 0; opacity: .4; pointer-events: none;
+    }
+    .hero__inner {
+      position: relative; z-index: 1; width: 100%; max-width: 1180px; margin: 0 auto;
+      padding: 5rem 1.5rem 6rem; display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .hero__eyebrow { font-size: .7rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: .75rem; }
+    .hero__eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+    .hero__title { font-size: clamp(3.2rem,7vw,6.2rem); font-weight: 300; line-height: 1.0; letter-spacing: -.03em; margin-bottom: 1.5rem; }
+    .hero__title em { font-style: italic; color: var(--accent); }
+    .hero__sub { font-size: 1.05rem; color: var(--text-light); line-height: 1.75; max-width: 460px; margin-bottom: 1.5rem; }
+    .hero__tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.75rem; }
+    .hero__tag { font-size: .75rem; font-weight: 500; padding: .3rem .8rem; border-radius: var(--r-full); border: 1px solid var(--border); color: var(--text-light); background: var(--white); }
+    .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem; background: var(--accent); color: #fff;
+      font-family: var(--sans); font-size: .88rem; font-weight: 500; padding: .85rem 1.7rem;
+      border-radius: var(--r-full); transition: background var(--ease), transform var(--ease), box-shadow var(--ease); border: none; cursor: pointer;
+    }
+    .btn-primary:hover, .btn-primary:focus-visible { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,133,82,.28); outline: none; }
+    .btn-ghost { font-size: .85rem; color: var(--text-light); border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color var(--ease), border-color var(--ease); }
+    .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+    .hero__visual { display: flex; justify-content: flex-end; }
+    .hero__frame { position: relative; width: 100%; max-width: 400px; }
+    .hero__photo {
+      width: 100%; aspect-ratio: 3/4;
+      background: var(--sand); border-radius: var(--r-lg) var(--r-lg) 55% 55%/var(--r-lg) var(--r-lg) 38% 38%;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero__ph { text-align: center; padding: 2rem; color: var(--text-light); }
+    .hero__ph svg { margin: 0 auto 1rem; opacity: .35; }
+    .hero__ph p { font-size: .78rem; color: var(--text-light); }
+    .hero__badge {
+      position: absolute; bottom: -1.25rem; left: -1.25rem;
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md);
+      padding: .9rem 1.1rem; box-shadow: var(--shadow);
+    }
+    .hero__badge p { font-size: .68rem; color: var(--text-light); text-transform: uppercase; letter-spacing: .08em; font-weight: 500; }
+    .hero__badge strong { display: block; font-family: var(--serif); font-size: 1.05rem; font-weight: 400; }
+    .hero__scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: .4rem; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-light); animation: bob 2.2s ease-in-out infinite; }
+    @keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    @media (max-width: 880px) {
+      .hero__inner { grid-template-columns: 1fr; text-align: center; }
+      .hero__eyebrow, .hero__tags, .hero__actions { justify-content: center; }
+      .hero__sub { margin-left: auto; margin-right: auto; }
+      .hero__visual { justify-content: center; }
+      .hero__frame { max-width: 280px; }
+    }
+
+    /* === STRIP === */
+    .strip { background: var(--accent-muted); padding: .85rem 0; overflow: hidden; }
+    .strip__track { display: flex; gap: 3rem; white-space: nowrap; animation: marquee 28s linear infinite; width: max-content; }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .strip__item { font-family: var(--serif); font-size: .9rem; font-style: italic; color: var(--accent); display: flex; align-items: center; gap: .9rem; }
+    .strip__dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); opacity: .4; }
+
+    /* === CHI SONO === */
+    .about__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    .about__quote { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; font-style: italic; color: var(--accent); border-left: 2px solid var(--accent-muted); padding-left: 1.5rem; line-height: 1.45; margin-bottom: 2rem; }
+    .about__creds { margin-top: 1.5rem; }
+    .about__cred { display: flex; gap: .75rem; padding: .7rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .about__cred:first-child { border-top: 1px solid var(--border); }
+    .cred-icon { width: 32px; height: 32px; background: var(--accent-muted); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; color: var(--accent); }
+    .cred-text strong { display: block; font-size: .82rem; font-weight: 600; margin-bottom: 1px; }
+    .cred-text span { font-size: .78rem; color: var(--text-light); }
+    .about__bio p { font-size: 1.02rem; margin-bottom: .9em; }
+    .about__box { background: var(--sand); border-radius: var(--r-md); padding: 1.5rem; border-left: 3px solid var(--accent); margin-top: 1.5rem; }
+    .about__box h4 { font-family: var(--serif); font-size: 1.15rem; margin-bottom: .6rem; }
+    .about__box p { font-size: .9rem; color: var(--text-light); }
+    @media (max-width: 760px) { .about__grid { grid-template-columns: 1fr; } .about__grid > *:first-child { order: 2; } }
+
+    /* === CONDIZIONI (accordion) === */
+    .cond__header { max-width: 580px; margin-bottom: 3rem; }
+    .cond__header p { font-size: .95rem; color: var(--text-light); margin-top: .5rem; }
+    .accordion__item { border-bottom: 1px solid var(--border); }
+    .accordion__btn {
+      width: 100%; background: none; border: none; display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 1.1rem 0; cursor: pointer; text-align: left;
+      font-family: var(--serif); font-size: 1.15rem; color: var(--text); transition: color var(--ease);
+    }
+    .accordion__btn:hover, .accordion__btn:focus-visible { color: var(--accent); outline: none; }
+    .accordion__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+    .acc-icon {
+      width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: transform var(--ease), background var(--ease), border-color var(--ease); color: var(--accent);
+    }
+    .accordion__btn[aria-expanded="true"] .acc-icon { transform: rotate(45deg); background: var(--accent); border-color: var(--accent); color: #fff; }
+    .accordion__panel { overflow: hidden; max-height: 0; transition: max-height .38s ease; }
+    .accordion__panel.open { max-height: 320px; }
+    .acc-inner { padding-bottom: 1rem; }
+    .acc-inner .tag { display: inline-block; font-size: .68rem; font-weight: 600; letter-spacing: .05em; padding: .18rem .55rem; border-radius: var(--r-full); background: var(--accent-muted); color: var(--accent); margin-bottom: .5rem; }
+    .acc-inner p { font-size: .9rem; color: var(--text-light); line-height: 1.7; }
+
+    /* === METODO (timeline) === */
+    .method__header { text-align: center; max-width: 560px; margin: 0 auto 4rem; }
+    .method__header p { color: var(--text-light); margin-top: .75rem; }
+    .timeline { position: relative; max-width: 880px; margin: 0 auto; }
+    .timeline::before { content: ''; position: absolute; top: 28px; left: 5%; right: 5%; height: 1px; background: linear-gradient(90deg, transparent, var(--border) 15%, var(--border) 85%, transparent); }
+    .timeline__steps { display: grid; grid-template-columns: repeat(5,1fr); gap: 1rem; }
+    .tl-step { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .tl-num {
+      width: 56px; height: 56px; border-radius: 50%; background: var(--cream); border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 1.3rem; color: var(--accent);
+      margin-bottom: .9rem; position: relative; z-index: 1;
+      transition: background var(--ease), border-color var(--ease);
+    }
+    .tl-step:hover .tl-num { background: var(--accent-muted); border-color: var(--accent); }
+    .tl-title { font-family: var(--serif); font-size: .95rem; font-weight: 500; margin-bottom: .35rem; }
+    .tl-desc { font-size: .78rem; color: var(--text-light); line-height: 1.55; }
+    @media (max-width: 720px) {
+      .timeline::before { display: none; }
+      .timeline__steps { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .tl-step { flex-direction: row; text-align: left; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--border); }
+      .tl-step:last-child { border-bottom: none; }
+      .tl-num { flex-shrink: 0; margin-bottom: 0; }
+    }
+
+    /* === DOVE LAVORO === */
+    .places__header { max-width: 480px; margin-bottom: 3rem; }
+    .places__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+    .place-card { background: var(--cream); border-radius: var(--r-md); padding: 1.5rem; border: 1px solid var(--border); transition: box-shadow var(--ease), transform var(--ease); }
+    .place-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .place-icon { width: 42px; height: 42px; background: var(--accent-muted); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: var(--accent); margin-bottom: 1rem; }
+    .place-card h3 { font-size: 1.1rem; margin-bottom: .35rem; }
+    .place-card p { font-size: .85rem; color: var(--text-light); }
+    .place-addr { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-style: normal; font-size: .8rem; color: var(--text-light); }
+    .place-addr strong { display: block; color: var(--text); font-size: .82rem; margin-bottom: 2px; }
+    .place-wide { grid-column: 1 / -1; display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
+    .place-wide p { font-size: .85rem; color: var(--text-light); }
+    @media (max-width: 860px) { .places__grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .places__grid { grid-template-columns: 1fr; } .place-wide { flex-direction: column; align-items: flex-start; } }
+
+    /* === ORARI === */
+    .hours__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .hours__ital { font-family: var(--serif); font-size: 1.55rem; font-weight: 300; font-style: italic; color: var(--text-light); line-height: 1.4; margin: 1rem 0 1.25rem; }
+    .hours__ital em { color: var(--accent); }
+    .hours__sub { font-size: .88rem; color: var(--text-light); }
+    .hours__row { display: flex; justify-content: space-between; align-items: center; padding: .7rem 0; border-bottom: 1px solid var(--border); font-size: .9rem; }
+    .hours__row:first-child { border-top: 1px solid var(--border); }
+    .hours__day { font-weight: 500; }
+    .hours__time { color: var(--text-light); }
+    .hours__time.closed { color: var(--border); font-style: italic; }
+    .hours__sede { font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .14rem .45rem; border-radius: var(--r-full); background: var(--accent-muted); color: var(--accent); margin-left: .4rem; }
+    @media (max-width: 680px) { .hours__grid { grid-template-columns: 1fr; } }
+
+    /* === CONTATTI === */
+    .contact__grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 5rem; align-items: start; }
+    .contact h2 { color: var(--cream); }
+    .contact .label { color: var(--accent-light); }
+    .contact__intro { color: rgba(251,248,243,.65); font-size: .95rem; margin: 1rem 0 1.75rem; }
+    .contact__methods { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 1.75rem; }
+    .contact__link { display: flex; align-items: center; gap: .75rem; color: var(--cream); font-size: .95rem; transition: color var(--ease); }
+    .contact__link:hover { color: var(--accent-light); }
+    .c-icon { width: 40px; height: 40px; background: rgba(251,248,243,.08); border: 1px solid rgba(251,248,243,.12); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent-light); }
+    .contact__how { background: rgba(251,248,243,.06); border: 1px solid rgba(251,248,243,.1); border-radius: var(--r-md); padding: 1.5rem; }
+    .contact__how h4 { font-family: var(--serif); font-size: 1.05rem; color: var(--cream); margin-bottom: .6rem; }
+    .contact__how p { font-size: .85rem; color: rgba(251,248,243,.6); line-height: 1.7; }
+
+    /* form */
+    .form-wrap { background: var(--cream); border-radius: var(--r-lg); padding: 2rem; }
+    .form-wrap h3 { font-family: var(--serif); font-size: 1.5rem; margin-bottom: .3rem; color: var(--text); }
+    .form-wrap .sub { font-size: .82rem; color: var(--text-light); margin-bottom: 1.5rem; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .f-group { margin-bottom: 1rem; }
+    .f-label { display: block; font-size: .78rem; font-weight: 500; margin-bottom: .35rem; }
+    .f-req { color: var(--accent); }
+    .f-input, .f-area {
+      width: 100%; padding: .72rem .95rem; border: 1px solid var(--border); border-radius: var(--r-sm);
+      background: var(--white); font-family: var(--sans); font-size: .9rem; color: var(--text);
+      transition: border-color var(--ease), box-shadow var(--ease); -webkit-appearance: none; appearance: none;
+    }
+    .f-input:focus, .f-area:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,133,82,.12); }
+    .f-area { min-height: 100px; resize: vertical; }
+    .f-privacy { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: 1rem; }
+    .f-privacy input { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; accent-color: var(--accent); }
+    .f-privacy label { font-size: .75rem; color: var(--text-light); line-height: 1.55; }
+    .f-privacy label a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .f-submit { width: 100%; background: var(--accent); color: #fff; border: none; border-radius: var(--r-full); padding: .88rem; font-family: var(--sans); font-size: .9rem; font-weight: 500; cursor: pointer; transition: background var(--ease), transform var(--ease); }
+    .f-submit:hover, .f-submit:focus-visible { background: var(--accent-hover); transform: translateY(-1px); outline: 2px solid var(--accent); outline-offset: 2px; }
+    .f-note { font-size: .7rem; color: var(--text-light); text-align: center; margin-top: .5rem; }
+    @media (max-width: 760px) { .contact__grid { grid-template-columns: 1fr; } .f-row { grid-template-columns: 1fr; } }
+
+    /* === FAQ === */
+    .faq__header { text-align: center; max-width: 480px; margin: 0 auto 3rem; }
+    .faq__header p { color: var(--text-light); margin-top: .5rem; }
+    .faq__list { max-width: 760px; margin: 0 auto; }
+    .faq__item { border-bottom: 1px solid var(--border); }
+    .faq__btn {
+      width: 100%; background: none; border: none; display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 1rem; padding: 1.25rem 0; cursor: pointer; text-align: left;
+      font-family: var(--sans); font-size: .93rem; font-weight: 500; color: var(--text);
+      transition: color var(--ease); line-height: 1.45;
+    }
+    .faq__btn:hover, .faq__btn:focus-visible { color: var(--accent); outline: none; }
+    .faq__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+    .faq__chev { width: 20px; height: 20px; flex-shrink: 0; color: var(--accent); transition: transform var(--ease); margin-top: 2px; }
+    .faq__btn[aria-expanded="true"] .faq__chev { transform: rotate(180deg); }
+    .faq__panel { overflow: hidden; max-height: 0; transition: max-height .38s ease; }
+    .faq__panel.open { max-height: 400px; }
+    .faq__inner { padding-bottom: 1.25rem; }
+    .faq__inner p { font-size: .9rem; color: var(--text-light); line-height: 1.75; }
+
+    /* === FOOTER === */
+    .footer { background: var(--text); padding: 4.5rem 0 2rem; }
+    .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(251,248,243,.1); margin-bottom: 2rem; }
+    .footer__name { font-family: var(--serif); font-size: 1.25rem; color: var(--cream); font-weight: 400; }
+    .footer__role { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-light); font-weight: 500; margin-top: .2rem; }
+    .footer__desc { margin-top: .75rem; font-size: .82rem; color: rgba(251,248,243,.5); line-height: 1.65; }
+    .footer__col h3 { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-light); margin-bottom: .75rem; }
+    .footer__links { display: flex; flex-direction: column; gap: .35rem; }
+    .footer__links a { font-size: .82rem; color: rgba(251,248,243,.55); transition: color var(--ease); }
+    .footer__links a:hover { color: var(--accent-light); }
+    .footer__contact p { font-size: .82rem; color: rgba(251,248,243,.55); margin-bottom: .35rem; }
+    .footer__contact a { color: rgba(251,248,243,.55); transition: color var(--ease); }
+    .footer__contact a:hover { color: var(--accent-light); }
+    .footer__socials { display: flex; gap: .6rem; margin-top: .9rem; }
+    .soc-link { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(251,248,243,.18); display: flex; align-items: center; justify-content: center; color: rgba(251,248,243,.45); transition: border-color var(--ease), color var(--ease); }
+    .soc-link:hover { border-color: var(--accent-light); color: var(--accent-light); }
+    .footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .footer__legal { font-size: .72rem; color: rgba(251,248,243,.32); line-height: 1.75; max-width: 680px; }
+    .footer__legal a { color: rgba(251,248,243,.42); text-decoration: underline; text-underline-offset: 2px; }
+    .footer__copy { font-size: .7rem; color: rgba(251,248,243,.28); white-space: nowrap; }
+    @media (max-width: 780px) { .footer__top { grid-template-columns: 1fr 1fr; } .footer__top > *:first-child { grid-column: 1/-1; } }
+    @media (max-width: 480px) { .footer__top { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip">Vai al contenuto principale</a>
+
+<!-- NAV -->
+<nav class="nav" id="nav" aria-label="Navigazione principale">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo" aria-label="Torna all'inizio">
+      Dott.ssa Daniela Biatta
+      <span>Logopedista</span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="#chi-sono">Chi sono</a></li>
+      <li><a href="#condizioni">Condizioni</a></li>
+      <li><a href="#metodo">Il mio metodo</a></li>
+      <li><a href="#dove">Dove lavoro</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contatti" class="nav__cta">Prenota</a></li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Apri menu" aria-expanded="false" aria-controls="mob-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav__mob" id="mob-menu" role="dialog" aria-label="Menu mobile" aria-modal="true">
+  <ul role="list" style="list-style:none;display:flex;flex-direction:column;align-items:center;gap:1.4rem">
+    <li><a href="#chi-sono"  class="mob-link">Chi sono</a></li>
+    <li><a href="#condizioni" class="mob-link">Condizioni</a></li>
+    <li><a href="#metodo"    class="mob-link">Il mio metodo</a></li>
+    <li><a href="#dove"      class="mob-link">Dove lavoro</a></li>
+    <li><a href="#faq"       class="mob-link">FAQ</a></li>
+    <li><a href="#contatti"  class="mob-link mob-cta">Prenota ora</a></li>
+  </ul>
+</div>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" aria-labelledby="hero-h1">
+  <div class="hero__blob"  aria-hidden="true"></div>
+  <div class="hero__blob2" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <div class="hero__content">
+      <p class="hero__eyebrow" aria-hidden="true">Logopedista · [CITTÀ]</p>
+      <h1 class="hero__title" id="hero-h1">
+        La voce<br>
+        <em>che cerchi</em><br>
+        è qui.
+      </h1>
+      <p class="hero__sub">
+        Ciao, sono Daniela. Ti accompagno con ascolto e professionalità in un percorso logopedico su misura — per te, per tuo figlio, per chi ami.
+      </p>
+      <ul class="hero__tags" role="list" aria-label="A chi mi rivolgo">
+        <li class="hero__tag">Bambini</li>
+        <li class="hero__tag">Adolescenti</li>
+        <li class="hero__tag">Adulti</li>
+        <li class="hero__tag">Anziani</li>
+        <li class="hero__tag">Telelogopedia online</li>
+      </ul>
+      <div class="hero__actions">
+        <a href="#contatti" class="btn-primary">
+          Prenota un appuntamento
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#chi-sono" class="btn-ghost">Scopri chi sono</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__frame">
+        <figure class="hero__photo">
+          <!-- Sostituire con: <img src="foto-daniela.jpg" alt="Dott.ssa Daniela Biatta, logopedista"> -->
+          <div class="hero__ph" aria-label="Spazio per la foto ritratto">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+              <circle cx="30" cy="22" r="11" stroke="#C08552" stroke-width="1.4"/>
+              <path d="M7 52c0-12.7 10.3-23 23-23s23 10.3 23 23" stroke="#C08552" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <p>[FOTO RITRATTO]<br>da aggiungere</p>
+          </div>
+        </figure>
+        <div class="hero__badge" aria-hidden="true">
+          <p>Iscritta Albo</p>
+          <strong>TSRM-PSTRP</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <span style="font-size:.65rem;letter-spacing:.1em;text-transform:uppercase">Scorri</span>
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip" aria-hidden="true">
+  <div class="strip__track">
+    <span class="strip__item">Linguaggio<span class="strip__dot"></span></span>
+    <span class="strip__item">Voce<span class="strip__dot"></span></span>
+    <span class="strip__item">Comunicazione<span class="strip__dot"></span></span>
+    <span class="strip__item">Deglutizione<span class="strip__dot"></span></span>
+    <span class="strip__item">Balbuzie<span class="strip__dot"></span></span>
+    <span class="strip__item">DSA<span class="strip__dot"></span></span>
+    <span class="strip__item">Telelogopedia<span class="strip__dot"></span></span>
+    <span class="strip__item">Riabilitazione<span class="strip__dot"></span></span>
+    <!-- duplicato per loop infinito -->
+    <span class="strip__item">Linguaggio<span class="strip__dot"></span></span>
+    <span class="strip__item">Voce<span class="strip__dot"></span></span>
+    <span class="strip__item">Comunicazione<span class="strip__dot"></span></span>
+    <span class="strip__item">Deglutizione<span class="strip__dot"></span></span>
+    <span class="strip__item">Balbuzie<span class="strip__dot"></span></span>
+    <span class="strip__item">DSA<span class="strip__dot"></span></span>
+    <span class="strip__item">Telelogopedia<span class="strip__dot"></span></span>
+    <span class="strip__item">Riabilitazione<span class="strip__dot"></span></span>
+  </div>
+</div>
+
+<!-- ===== CHI SONO ===== -->
+<section class="section" id="chi-sono" aria-labelledby="about-h2">
+  <div class="container">
+    <div class="about__grid">
+      <aside class="reveal-left">
+        <blockquote class="about__quote">
+          "Ogni persona ha una storia da raccontare. Il mio compito è aiutarla a trovare le parole."
+        </blockquote>
+        <div class="about__creds" aria-label="Titoli e qualifiche">
+          <div class="about__cred">
+            <div class="cred-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.3 4.6 5.7.9-4 3.9.9 5.5L9 13.5l-4.9 2.4.9-5.5-4-3.9 5.7-.9L9 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="cred-text"><strong>Laurea magistrale in Logopedia</strong><span>[UNIVERSITÀ] · [ANNO]</span></div>
+          </div>
+          <div class="about__cred">
+            <div class="cred-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M6 7h6M6 10h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="cred-text"><strong>Iscritta all'Albo TSRM-PSTRP</strong><span>N. [NUMERO ISCRIZIONE]</span></div>
+          </div>
+          <div class="about__cred">
+            <div class="cred-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.2"/><path d="M9 5v4l2.5 2.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="cred-text"><strong>Formazione continua</strong><span>[CORSI E SPECIALIZZAZIONI]</span></div>
+          </div>
+          <div class="about__cred">
+            <div class="cred-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M9 2C5.13 2 2 5.13 2 9s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7z" stroke="currentColor" stroke-width="1.2"/><path d="M9 6v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="cred-text"><strong>[ANNI] anni di esperienza</strong><span>[CONTESTI E AMBITI PRINCIPALI]</span></div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="reveal-right">
+        <span class="label">Chi sono</span>
+        <h2 id="about-h2">Daniela Biatta,<br>logopedista</h2>
+        <div class="about__bio" style="margin-top:1.25rem">
+          <p>[TESTO BIO DA COMPILARE. Esempio: Mi chiamo Daniela Biatta e sono logopedista libera professionista da [ANNI] anni. Ho scelto questa professione perché credo nel potere della parola e nel diritto di ciascuno a comunicare in modo pieno e autentico.]</p>
+          <p>[Dopo la laurea presso [UNIVERSITÀ] mi sono specializzata in [AMBITI]. Ho avuto il privilegio di lavorare con bambini, adulti e anziani, costruendo con ognuno un percorso su misura basato sull'ascolto e sul rispetto dei tempi individuali.]</p>
+          <p>[Nel mio studio porto l'entusiasmo per la ricerca e l'aggiornamento costante: seguo le linee guida più recenti e frequento regolarmente corsi di formazione avanzata.]</p>
+        </div>
+        <div class="about__box">
+          <h4>La mia filosofia</h4>
+          <p>Credo in un approccio centrato sulla persona: non tratto sintomi, ma persone. Ogni percorso inizia dall'ascolto — delle difficoltà, certo, ma anche delle risorse e dei desideri di chi ho di fronte. Solo così è possibile costruire un cammino davvero efficace e significativo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONDIZIONI TRATTATE ===== -->
+<section class="section section--alt" id="condizioni" aria-labelledby="cond-h2">
+  <div class="container">
+    <div class="cond__header reveal">
+      <span class="label">Cosa tratto</span>
+      <h2 id="cond-h2">Condizioni trattate</h2>
+      <p>Clicca su ciascuna voce per saperne di più. Mi occupo di valutazione e trattamento in diversi ambiti, per tutte le fasce d'età.</p>
+    </div>
+
+    <div class="stagger" id="acc-list">
+      <!-- 1 -->
+      <div class="accordion__item">
+        <button class="accordion__btn" aria-expanded="false" aria-controls="acc1">
+          <span>Ritardo e disturbi del linguaggio</span>
+          <span class="acc-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="accordion__panel" id="acc1" role="region">
+          <div class="acc-inner"><span class="tag">Bambini · Adulti</span>
+            <p>Il bambino non parla ancora come i coetanei? Oppure hai difficoltà a esprimerti? Valuto e tratto i ritardi e i disturbi del linguaggio (espressivi, recettivi o misti) in tutte le fasce d'età, con un approccio giocoso e motivante per i più piccoli.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="accordion__item">
+        <button class="accordion__btn" aria-expanded="false" aria-controls="acc2">
+          <span>Dislalia e difficoltà di articolazione</span>
+          <span class="acc-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="accordion__panel" id="acc2" role="region">
+          <div class="acc-inner"><span class="tag">Bambini · Adulti</span>
+            <p>La pronuncia di certi suoni è difficoltosa o imprecisa? La dislalia è molto comune e risponde bene al trattamento. Lavoriamo insieme per rendere il parlato più chiaro e fluente, con esercizi mirati e progressivi.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="accordion__item">
+        <button class="accordion__btn" aria-expanded="false" aria-controls="acc3">
+          <span>Balbuzie e disturbi della fluenza</span>
+          <span class="acc-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="accordion__panel" id="acc3" role="region">
+          <div class="acc-inner"><span class="tag">Bambini · Adolescenti · Adulti</span>
+            <p>La balbuzie tocca la sicurezza, le relazioni e la vita sociale. Lavoro in modo integrato — tecniche di fluenza, gestione dell'ansia comunicativa e benessere complessivo — per accompagnarti verso una comunicazione più libera.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="accordion__item">
+        <button class="accordion__btn" aria-expanded="false" aria-controls="acc4">
+          <span>DSA – Disturbi Specifici dell'Apprendimento</span>
+          <span class="acc-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="accordion__panel" id="acc4" role="region">
+          <div class="acc-inner"><span class="tag">Bambini · Adolescenti</span>
+            <p>Dislessia, disortografia, discalculia, disgrafia: le difficoltà di apprendimento hanno molte facce. Valuto e tratto i DSA in età evolutiva, collaborando con la famiglia e la scuola per costruire strategie efficaci e restituire il piacere di imparare.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="accordion__item">
+        <button class="accordion__btn" aria-expanded="false" aria-controls="acc5">
+          <span>Disturbi della voce e disfonia</span>
+          <span class="acc-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="accordion__panel" id="acc5" role="region">
+          <div class="acc-inner"><span class="tag">Adulti · Professioni vocali</span>
+            <p>Raucedine cronica, voce affaticata, perdita della voce? Che tu sia insegnante, cantante o semplicemente stanco di soffrire, ti insegno a usare la voce in modo sano ed efficace, in sinergia con il foniatria quando necessario.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 6 -->
+      <div class="accordion__item">
+        <button class="accordion__btn" aria-expanded="false" aria-controls="acc6">
+          <span>Deglutizione atipica e disfagia</span>
+          <span class="acc-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="accordion__panel" id="acc6" role="region">
+          <div class="acc-inner"><span class="tag">Bambini · Adulti · Anziani</span>
+            <p>Dalla difficoltà di alimentazione del neonato alla disfagia nell'anziano (spesso post-ictus): valuto il profilo deglutitorio e costruisco un programma di trattamento sicuro e progressivo.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 7 -->
+      <div class="accordion__item">
+        <button class="accordion__btn" aria-expanded="false" aria-controls="acc7">
+          <span>Afasia e riabilitazione post-ictus</span>
+          <span class="acc-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="accordion__panel" id="acc7" role="region">
+          <div class="acc-inner"><span class="tag">Adulti · Anziani</span>
+            <p>Dopo un ictus o un trauma cerebrale, ritrovare le parole può sembrare impossibile. Non lo è. Lavoro a fianco del paziente e della sua famiglia in un percorso paziente e costante, sfruttando la plasticità del cervello per riconquistare la comunicazione.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 8 -->
+      <div class="accordion__item">
+        <button class="accordion__btn" aria-expanded="false" aria-controls="acc8">
+          <span>Disturbi della comunicazione (autismo, disabilità)</span>
+          <span class="acc-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="accordion__panel" id="acc8" role="region">
+          <div class="acc-inner"><span class="tag">Bambini · Adulti</span>
+            <p>La comunicazione va molto oltre le parole. Nei disturbi dello spettro autistico e in caso di disabilità intellettive, propongo percorsi che valorizzano ogni canale comunicativo — verbale, gestuale, aumentativo e alternativo — per favorire la partecipazione attiva alla vita quotidiana.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IL MIO METODO ===== -->
+<section class="section" id="metodo" aria-labelledby="method-h2">
+  <div class="container">
+    <div class="method__header reveal">
+      <span class="label">Come lavoro</span>
+      <h2 id="method-h2">Il mio metodo</h2>
+      <p>Un percorso pensato intorno a te. Ogni fase nasce dall'ascolto e porta con sé cura, rigore e umanità.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline__steps stagger">
+        <div class="tl-step">
+          <div class="tl-num" aria-hidden="true">1</div>
+          <div>
+            <p class="tl-title">Ascolto</p>
+            <p class="tl-desc">Tutto inizia da te. Un colloquio libero per capire bisogni, preoccupazioni e obiettivi.</p>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num" aria-hidden="true">2</div>
+          <div>
+            <p class="tl-title">Valutazione</p>
+            <p class="tl-desc">Strumenti standardizzati e osservazione clinica per un quadro preciso e completo.</p>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num" aria-hidden="true">3</div>
+          <div>
+            <p class="tl-title">Piano su misura</p>
+            <p class="tl-desc">Un programma costruito sui tuoi punti di forza e le tue difficoltà specifiche.</p>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num" aria-hidden="true">4</div>
+          <div>
+            <p class="tl-title">Trattamento</p>
+            <p class="tl-desc">Sedute individuali, coinvolgenti e calibrate nel ritmo, nella modalità e negli strumenti.</p>
+          </div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num" aria-hidden="true">5</div>
+          <div>
+            <p class="tl-title">Verifica e crescita</p>
+            <p class="tl-desc">Monitoraggio costante dei progressi. Il piano si aggiusta perché la vita cambia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOVE LAVORO ===== -->
+<section class="section section--alt" id="dove" aria-labelledby="places-h2">
+  <div class="container">
+    <div class="places__header reveal">
+      <span class="label">Dove ci troviamo</span>
+      <h2 id="places-h2">Luoghi in cui lavoro</h2>
+      <p style="margin-top:.5rem;color:var(--text-light);font-size:.95rem">Puoi incontrarmi nei miei studi o prenotare una sessione online o una visita a domicilio.</p>
+    </div>
+    <div class="places__grid stagger">
+      <article class="place-card">
+        <div class="place-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.4"/><circle cx="11" cy="9" r="2.5" stroke="currentColor" stroke-width="1.4"/></svg>
+        </div>
+        <h3>Studio principale</h3>
+        <p>Il mio studio di riferimento, attrezzato per valutazioni e trattamenti in un ambiente accogliente e riservato.</p>
+        <address class="place-addr"><strong>[INDIRIZZO STUDIO 1]</strong>[CAP] [CITTÀ]<br>[Indicazioni, piano, citofono]</address>
+      </article>
+      <article class="place-card">
+        <div class="place-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><rect x="2" y="6" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M7 6V4a4 4 0 018 0v2" stroke="currentColor" stroke-width="1.4"/></svg>
+        </div>
+        <h3>Seconda sede</h3>
+        <p>[Descrizione seconda sede — es. centro poliambulatorio, studio condiviso, altro studio privato.]</p>
+        <address class="place-addr"><strong>[INDIRIZZO STUDIO 2]</strong>[CAP] [CITTÀ]<br>[Indicazioni aggiuntive]</address>
+      </article>
+      <article class="place-card">
+        <div class="place-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M8 19h6M11 15v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Telelogopedia online</h3>
+        <p>Sessioni via videochiamata: efficaci, comode e accessibili da qualsiasi luogo. Ideali per chi ha difficoltà di spostamento o vive lontano.</p>
+        <div class="place-addr"><strong>Da casa tua</strong>Piattaforma sicura e conforme al GDPR<br>Richiedi info alla prima telefonata</div>
+      </article>
+      <article class="place-card place-wide">
+        <div class="place-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M3 10h5l3-7 4 14 2-7h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <h3 style="font-size:1rem;margin-bottom:.25rem">Visita a domicilio</h3>
+          <p>In alcuni casi — soprattutto per anziani, persone con mobilità ridotta o bambini piccoli — mi sposto io da te. Contattami per valutare insieme la possibilità.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORARI ===== -->
+<section class="section" id="orari" aria-labelledby="hours-h2">
+  <div class="container">
+    <div class="hours__grid">
+      <div class="reveal-left">
+        <span class="label">Orari</span>
+        <h2 id="hours-h2">Quando<br>puoi trovarmi</h2>
+        <p class="hours__ital">"La disponibilità <em>si adatta</em> alla tua vita, non il contrario."</p>
+        <p class="hours__sub">Sono disponibile anche per urgenze e prime visite in tempi brevi. Contattami per concordare l'orario migliore.</p>
+      </div>
+      <div class="reveal-right">
+        <div role="table" aria-label="Orari di ricevimento">
+          <div class="hours__row" role="row">
+            <span class="hours__day" role="cell">Lunedì</span>
+            <span class="hours__time" role="cell">[HH:MM – HH:MM] <span class="hours__sede">[Sede]</span></span>
+          </div>
+          <div class="hours__row" role="row">
+            <span class="hours__day" role="cell">Martedì</span>
+            <span class="hours__time" role="cell">[HH:MM – HH:MM]</span>
+          </div>
+          <div class="hours__row" role="row">
+            <span class="hours__day" role="cell">Mercoledì</span>
+            <span class="hours__time" role="cell">[HH:MM – HH:MM] <span class="hours__sede">[Sede]</span></span>
+          </div>
+          <div class="hours__row" role="row">
+            <span class="hours__day" role="cell">Giovedì</span>
+            <span class="hours__time" role="cell">[HH:MM – HH:MM]</span>
+          </div>
+          <div class="hours__row" role="row">
+            <span class="hours__day" role="cell">Venerdì</span>
+            <span class="hours__time" role="cell">[HH:MM – HH:MM]</span>
+          </div>
+          <div class="hours__row" role="row">
+            <span class="hours__day" role="cell">Sabato</span>
+            <span class="hours__time closed" role="cell">[su richiesta]</span>
+          </div>
+          <div class="hours__row" role="row">
+            <span class="hours__day" role="cell">Domenica</span>
+            <span class="hours__time closed" role="cell">Chiuso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTATTI ===== -->
+<section class="section section--dark" id="contatti" aria-labelledby="contact-h2">
+  <div class="container">
+    <div class="contact__grid">
+      <div class="reveal-left">
+        <span class="label">Contatti</span>
+        <h2 id="contact-h2">Prenota il tuo<br>primo appuntamento</h2>
+        <p class="contact__intro">Il primo passo è sempre il più importante. Puoi contattarmi per telefono, email o con il modulo qui accanto. Rispondo entro 24–48 ore.</p>
+        <div class="contact__methods">
+          <a href="tel:[TELEFONO]" class="contact__link">
+            <span class="c-icon" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 18 18" fill="none"><path d="M5.5 2H3a1 1 0 00-1 1 13 13 0 0013 13 1 1 0 001-1v-2.5a1 1 0 00-1-1L12.5 11a1 1 0 00-.9.55l-.6 1.2a10.07 10.07 0 01-4.75-4.75l1.2-.6A1 1 0 008 6.5L6.5 3a1 1 0 00-1-.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            </span>
+            [TELEFONO]
+          </a>
+          <a href="mailto:[EMAIL]" class="contact__link">
+            <span class="c-icon" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M2 6l7 5 7-5" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            </span>
+            [EMAIL]
+          </a>
+        </div>
+        <div class="contact__how">
+          <h4>Come si prenota?</h4>
+          <p>Chiamami o scrivi per fissare un primo colloquio (45–60 minuti). Ascolto la tua situazione, rispondo alle domande e valutiamo insieme se e come procedere. Nessun impegno prima di aver parlato. Non è necessaria l'impegnativa del medico per un primo contatto privato.</p>
+        </div>
+      </div>
+
+      <div class="form-wrap reveal-right">
+        <!--
+          COLLEGAMENTO FORM: sostituisci [TUO_ID_FORMSPREE] con il tuo ID da formspree.io
+          In alternativa aggiungi l'attributo "netlify" per Netlify Forms.
+        -->
+        <form action="https://formspree.io/f/[TUO_ID_FORMSPREE]" method="POST" id="cform" aria-label="Modulo di contatto" novalidate>
+          <h3>Scrivimi</h3>
+          <p class="sub">Compila il modulo e ti rispondo entro 24–48 ore.</p>
+          <div class="f-row">
+            <div class="f-group">
+              <label for="nome" class="f-label">Nome e cognome <span class="f-req" aria-hidden="true">*</span></label>
+              <input type="text" id="nome" name="nome" class="f-input" required aria-required="true" autocomplete="name" placeholder="Mario Rossi">
+            </div>
+            <div class="f-group">
+              <label for="recapito" class="f-label">Telefono o email <span class="f-req" aria-hidden="true">*</span></label>
+              <input type="text" id="recapito" name="recapito" class="f-input" required aria-required="true" placeholder="345 678 9012">
+            </div>
+          </div>
+          <div class="f-group">
+            <label for="oggetto" class="f-label">Motivo del contatto</label>
+            <input type="text" id="oggetto" name="oggetto" class="f-input" placeholder="es. Valutazione per mio figlio, consulenza voce…">
+          </div>
+          <div class="f-group">
+            <label for="msg" class="f-label">Messaggio <span class="f-req" aria-hidden="true">*</span></label>
+            <textarea id="msg" name="messaggio" class="f-area" required aria-required="true" placeholder="Descrivimi brevemente la situazione…"></textarea>
+          </div>
+          <div class="f-privacy">
+            <input type="checkbox" id="privacy" name="privacy" required aria-required="true">
+            <label for="privacy">Ho letto e accetto la <a href="#privacy-note">Privacy Policy</a> (Reg. UE 2016/679 – GDPR). I miei dati saranno trattati esclusivamente per rispondere alla mia richiesta. <span class="f-req" aria-hidden="true">*</span></label>
+          </div>
+          <button type="submit" class="f-submit">Invia messaggio</button>
+          <p class="f-note" id="fstatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq" aria-labelledby="faq-h2">
+  <div class="container">
+    <div class="faq__header reveal">
+      <span class="label">Hai dubbi?</span>
+      <h2 id="faq-h2">Domande frequenti</h2>
+      <p>Le domande che mi fanno più spesso. Se la tua non c'è, scrivimi.</p>
+    </div>
+    <div class="faq__list stagger">
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false" aria-controls="faq1">Quando mi devo rivolgere a un logopedista?
+          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq__panel" id="faq1" role="region">
+          <div class="faq__inner"><p>Qualunque difficoltà legata al linguaggio, alla voce, alla lettura e scrittura, alla deglutizione o alla comunicazione è un motivo valido per un consulto. Non aspettare: intervenire presto — specie per i bambini — fa quasi sempre una grande differenza. Un primo colloquio non impegna a nulla.</p></div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false" aria-controls="faq2">Come si svolge la prima visita?
+          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq__panel" id="faq2" role="region">
+          <div class="faq__inner"><p>La prima visita dura circa 45–60 minuti. Inizia con un colloquio in cui mi racconti la situazione; seguono alcune prove di valutazione, adattate all'età e al motivo del consulto. Alla fine ti spiego quello che ho osservato e discutiamo insieme se e come procedere.</p></div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false" aria-controls="faq3">Serve l'impegnativa del medico?
+          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq__panel" id="faq3" role="region">
+          <div class="faq__inner"><p>No. Per una visita privata non è necessaria alcuna impegnativa o prescrizione medica. Puoi contattarmi direttamente. Se hai già documentazione clinica (diagnosi, relazioni precedenti), portala al primo appuntamento: sarà molto utile.</p></div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false" aria-controls="faq4">Da che età si può iniziare?
+          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq__panel" id="faq4" role="region">
+          <div class="faq__inner"><p>La logopedia non ha limiti d'età. Si può iniziare molto presto (anche nei primi mesi in caso di difficoltà di suzione/deglutizione) e continuare fino all'età avanzata. L'intervento precoce nel bambino ha spesso risultati molto positivi, ma non è mai troppo tardi per iniziare.</p></div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false" aria-controls="faq5">Quanto dura un percorso logopedico?
+          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq__panel" id="faq5" role="region">
+          <div class="faq__inner"><p>Dipende dalla condizione trattata, dall'età e dalla frequenza delle sedute. Alcuni percorsi si concludono in pochi mesi; altri, per condizioni più complesse, possono essere più lunghi. Ti fornirò sempre una stima realistica dopo la valutazione iniziale.</p></div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__btn" aria-expanded="false" aria-controls="faq6">La telelogopedia funziona davvero?
+          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq__panel" id="faq6" role="region">
+          <div class="faq__inner"><p>Sì, e la ricerca lo conferma. La telelogopedia è efficace per molte condizioni (disturbi del linguaggio, balbuzie, disturbi della voce, DSA) e offre vantaggi reali: nessun tempo di spostamento, sedute integrate nella routine, maggiore comfort nell'ambiente familiare. Non è adatta a tutti i casi: te lo dico chiaramente alla prima valutazione.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="privacy-note" role="contentinfo">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <p class="footer__name">Dott.ssa Daniela Biatta</p>
+        <p class="footer__role">Logopedista Libera Professionista</p>
+        <p class="footer__desc">Percorsi logopedici personalizzati per bambini, adolescenti, adulti e anziani. In studio, a domicilio e online.</p>
+        <div class="footer__socials" aria-label="Profili social">
+          <a href="[LINK_INSTAGRAM]" class="soc-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="[LINK_FACEBOOK]" class="soc-link" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="[LINK_LINKEDIN]" class="soc-link" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h3>Sezioni</h3>
+        <nav aria-label="Link nel footer">
+          <ul class="footer__links" role="list">
+            <li><a href="#chi-sono">Chi sono</a></li>
+            <li><a href="#condizioni">Condizioni trattate</a></li>
+            <li><a href="#metodo">Il mio metodo</a></li>
+            <li><a href="#dove">Dove lavoro</a></li>
+            <li><a href="#orari">Orari</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer__col footer__contact">
+        <h3>Recapiti</h3>
+        <p><a href="tel:[TELEFONO]">[TELEFONO]</a></p>
+        <p><a href="mailto:[EMAIL]">[EMAIL]</a></p>
+        <p>[INDIRIZZO STUDIO 1]</p>
+        <p>[INDIRIZZO STUDIO 2]</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        P.IVA: [P.IVA] &nbsp;·&nbsp; Iscritta all'Albo TSRM-PSTRP n. [NUMERO] &nbsp;·&nbsp; Albo provinciale di [PROVINCIA]<br>
+        <strong style="color:rgba(251,248,243,.45)">Informativa Privacy (GDPR):</strong> i dati raccolti tramite il modulo di contatto sono trattati esclusivamente per rispondere alle richieste degli utenti e non vengono ceduti a terzi (Reg. UE 2016/679).
+        <a href="[LINK_PRIVACY_COMPLETA]">Informativa completa</a>
+        <!-- Questo sito non imposta cookie di profilazione o tracciamento. Nessun banner cookie necessario.
+             Se in futuro si integrano servizi analytics o di terze parti, aggiungere il banner. -->
+      </div>
+      <p class="footer__copy">© <span id="yr"></span> Dott.ssa Daniela Biatta</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+/* Anno footer */
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* Nav scrolled */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), { passive: true });
+
+/* Hamburger */
+const burger = document.getElementById('burger');
+const mob    = document.getElementById('mob-menu');
+const close  = () => {
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded','false');
+  mob.classList.remove('open');
+  document.body.style.overflow = '';
+};
+burger.addEventListener('click', () => {
+  const open = burger.classList.toggle('open');
+  burger.setAttribute('aria-expanded', String(open));
+  mob.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', close));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { close(); burger.focus(); } });
+
+/* Scroll animations */
+const mo = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); mo.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger').forEach(el => mo.observe(el));
+} else {
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger').forEach(el => el.classList.add('on'));
+}
+
+/* Accordion (condizioni) */
+document.querySelectorAll('.accordion__btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.accordion__btn').forEach(b => {
+      b.setAttribute('aria-expanded','false');
+      document.getElementById(b.getAttribute('aria-controls')).classList.remove('open');
+    });
+    if (!open) {
+      btn.setAttribute('aria-expanded','true');
+      document.getElementById(btn.getAttribute('aria-controls')).classList.add('open');
+    }
+  });
+});
+
+/* FAQ accordion */
+document.querySelectorAll('.faq__btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq__btn').forEach(b => {
+      b.setAttribute('aria-expanded','false');
+      document.getElementById(b.getAttribute('aria-controls')).classList.remove('open');
+    });
+    if (!open) {
+      btn.setAttribute('aria-expanded','true');
+      document.getElementById(btn.getAttribute('aria-controls')).classList.add('open');
+    }
+  });
+});
+
+/* Form submit */
+const form   = document.getElementById('cform');
+const status = document.getElementById('fstatus');
+form && form.addEventListener('submit', async e => {
+  e.preventDefault();
+  let ok = true;
+  form.querySelectorAll('[required]').forEach(f => {
+    const bad = f.type === 'checkbox' ? !f.checked : !f.value.trim();
+    f.style.outlineColor = bad ? 'var(--accent)' : '';
+    if (bad) ok = false;
+  });
+  if (!ok) { status.textContent = 'Compila tutti i campi obbligatori.'; status.style.color = 'var(--accent)'; return; }
+  const btn = form.querySelector('.f-submit');
+  btn.disabled = true; btn.textContent = 'Invio in corso…';
+  try {
+    const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+    if (r.ok) {
+      status.textContent = 'Messaggio inviato! Ti risponderò entro 24–48 ore. Grazie.';
+      status.style.color = '#6B8F71';
+      form.reset();
+    } else throw new Error();
+  } catch {
+    status.textContent = "Errore nell'invio. Prova a scrivere direttamente a [EMAIL].";
+    status.style.color = 'var(--accent)';
+  } finally {
+    btn.disabled = false; btn.textContent = 'Invia messaggio';
+  }
+});
+</script>
+</body>
+</html>
