@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informativa Privacy – Dott.ssa Daniela Biatta</title>
+  <meta name="description" content="Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR) – Dott.ssa Daniela Biatta, Logopedista.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --sand: #F4EDE4;
+      --cream: #FBF8F3;
+      --white: #FEFCFA;
+      --text: #4A443D;
+      --text-light: #7A736B;
+      --accent: #C08552;
+      --accent-hover: #A5703F;
+      --accent-muted: #EAD8C4;
+      --border: #E0D5C8;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', -apple-system, sans-serif;
+      --ease: 0.3s ease;
+      --r-sm: 4px; --r-md: 12px; --r-lg: 24px; --r-full: 9999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--text); background: var(--cream); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(251,248,243,.96); backdrop-filter: blur(8px); box-shadow: 0 1px 0 var(--border); padding: 1.1rem 1.5rem; }
+    .nav__inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo { font-family: var(--serif); font-size: 1.05rem; color: var(--text); line-height: 1.2; }
+    .nav__logo span { display: block; font-family: var(--sans); font-size: .62rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--text-light); }
+    .back-link { display: inline-flex; align-items: center; gap: .45rem; font-size: .8rem; font-weight: 500; color: var(--accent); border: 1.5px solid var(--accent-muted); padding: .45rem 1rem; border-radius: var(--r-full); transition: background var(--ease), color var(--ease); }
+    .back-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .back-link svg { flex-shrink: 0; }
+
+    /* HERO */
+    .privacy-hero { background: var(--sand); padding: 4rem 1.5rem 3rem; border-bottom: 1px solid var(--border); }
+    .privacy-hero__inner { max-width: 860px; margin: 0 auto; }
+    .privacy-hero .label { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: .75rem; }
+    .privacy-hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.15; color: var(--text); margin-bottom: .75rem; }
+    .privacy-hero .meta { font-size: .82rem; color: var(--text-light); }
+
+    /* CONTENT */
+    .privacy-content { max-width: 860px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
+
+    .privacy-intro { font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+    .privacy-section { margin-bottom: 2.75rem; }
+    .privacy-section:last-of-type { margin-bottom: 0; }
+
+    .privacy-section__heading {
+      display: flex; align-items: baseline; gap: .85rem;
+      margin-bottom: 1rem; padding-bottom: .6rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .privacy-section__num {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 300;
+      color: var(--accent); line-height: 1; flex-shrink: 0;
+      min-width: 2rem;
+    }
+    .privacy-section__title {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 500;
+      color: var(--text); line-height: 1.3;
+    }
+
+    .privacy-section p { font-size: .95rem; color: var(--text); line-height: 1.8; margin-bottom: .75rem; }
+    .privacy-section p:last-child { margin-bottom: 0; }
+    .privacy-section ul { margin: .5rem 0 .75rem 0; padding-left: 1.25rem; }
+    .privacy-section ul li { font-size: .95rem; color: var(--text); line-height: 1.75; list-style: disc; }
+    .privacy-section a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .privacy-section a:hover { color: var(--accent-hover); }
+
+    .privacy-note {
+      background: var(--sand); border-left: 3px solid var(--accent-muted);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      padding: .9rem 1.1rem; margin-top: .75rem;
+      font-size: .85rem; color: var(--text-light); line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* BOTTOM CTA */
+    .privacy-bottom { text-align: center; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+    .privacy-bottom a {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--accent); color: #fff;
+      font-family: var(--sans); font-size: .88rem; font-weight: 500;
+      padding: .85rem 1.7rem; border-radius: var(--r-full);
+      transition: background var(--ease), transform var(--ease);
+    }
+    .privacy-bottom a:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+    /* FOOTER */
+    .privacy-footer { background: var(--text); padding: 1.5rem; text-align: center; }
+    .privacy-footer p { font-size: .72rem; color: rgba(251,248,243,.35); }
+  </style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Navigazione">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Torna alla home">
+      Dott.ssa Daniela Biatta
+      <span>Logopedista</span>
+    </a>
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Torna alla home
+    </a>
+  </div>
+</nav>
+
+<header class="privacy-hero">
+  <div class="privacy-hero__inner">
+    <span class="label">Dati personali</span>
+    <h1>Informativa Privacy</h1>
+    <p class="meta">Ai sensi degli artt. 13 e 14 del Regolamento UE 2016/679 (GDPR) &nbsp;·&nbsp; Ultimo aggiornamento: 05/06/2026</p>
+  </div>
+</header>
+
+<main class="privacy-content">
+
+  <p class="privacy-intro">
+    La presente informativa descrive le modalità di trattamento dei dati personali degli utenti che utilizzano il modulo di contatto presente su questo sito web (<strong>danielabiatta.com</strong>).
+  </p>
+
+  <!-- 1 -->
+  <section class="privacy-section" aria-labelledby="s1">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">1.</span>
+      <h2 class="privacy-section__title" id="s1">Titolare del trattamento</h2>
+    </div>
+    <p>Il Titolare del trattamento è:</p>
+    <ul>
+      <li><strong>Dott.ssa Daniela Biatta</strong> – Logopedista</li>
+      <li>P.IVA: [LA TUA P.IVA]</li>
+      <li>Iscritta all'Albo TSRM-PSTRP n. 27 – Brescia</li>
+      <li>Sede: Via Boccaccio 79, 25034 Orzinuovi (BS)</li>
+      <li>Email: <a href="mailto:logodanielabiatta@gmail.com">logodanielabiatta@gmail.com</a></li>
+      <li>Telefono: <a href="tel:+393337114624">333 711 4624</a></li>
+    </ul>
+  </section>
+
+  <!-- 2 -->
+  <section class="privacy-section" aria-labelledby="s2">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">2.</span>
+      <h2 class="privacy-section__title" id="s2">Tipologie di dati raccolti</h2>
+    </div>
+    <p>Tramite il modulo di contatto vengono raccolti i seguenti dati, forniti volontariamente dall'utente:</p>
+    <ul>
+      <li>nome;</li>
+      <li>cognome;</li>
+      <li>indirizzo email;</li>
+      <li>eventuale messaggio descrittivo (campo facoltativo).</li>
+    </ul>
+    <p>Qualora l'utente inserisca spontaneamente nel campo messaggio informazioni relative allo stato di salute proprio o di terzi (es. minori), tali dati, appartenenti a categorie particolari ai sensi dell'art. 9 GDPR, saranno trattati unicamente per dare riscontro alla richiesta, sulla base del consenso esplicito prestato dall'interessato mediante l'invio del modulo e la spunta dell'apposita casella.</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="privacy-section" aria-labelledby="s3">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">3.</span>
+      <h2 class="privacy-section__title" id="s3">Finalità del trattamento</h2>
+    </div>
+    <p>I dati forniti sono trattati esclusivamente per:</p>
+    <ul>
+      <li>rispondere alle richieste di informazioni inviate tramite il modulo;</li>
+      <li>ricontattare l'utente in relazione alla richiesta effettuata;</li>
+      <li>adempiere ad eventuali misure precontrattuali richieste dall'interessato.</li>
+    </ul>
+    <p>I dati <strong>non</strong> sono utilizzati per finalità di marketing, profilazione o invio di comunicazioni commerciali, e non sono ceduti a terzi per tali scopi.</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="privacy-section" aria-labelledby="s4">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">4.</span>
+      <h2 class="privacy-section__title" id="s4">Base giuridica del trattamento</h2>
+    </div>
+    <p>Il trattamento si fonda su:</p>
+    <ul>
+      <li>il consenso espresso dall'interessato mediante l'apposita casella di spunta presente nel modulo (art. 6, par. 1, lett. a, e – per gli eventuali dati relativi alla salute – art. 9, par. 2, lett. a, GDPR);</li>
+      <li>l'esecuzione di misure precontrattuali adottate su richiesta dell'interessato (art. 6, par. 1, lett. b, GDPR).</li>
+    </ul>
+    <p>Il conferimento dei dati è facoltativo, ma il mancato conferimento di nome, cognome ed email rende impossibile dare riscontro alla richiesta.</p>
+  </section>
+
+  <!-- 5 -->
+  <section class="privacy-section" aria-labelledby="s5">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">5.</span>
+      <h2 class="privacy-section__title" id="s5">Modalità del trattamento e strumenti utilizzati</h2>
+    </div>
+    <p>Il modulo di contatto si avvale del servizio tecnico <strong>Web3Forms</strong>, che opera in qualità di Responsabile del trattamento e si occupa esclusivamente di trasmettere al Titolare i dati inseriti nel modulo, recapitandoli via email. Web3Forms non utilizza i dati per finalità proprie.</p>
+    <div class="privacy-note">
+      Verificare sul sito di Web3Forms l'eventuale accordo sul trattamento dei dati (DPA) e la collocazione dei server. Se i dati sono trasferiti al di fuori dell'UE, il trasferimento avviene sulla base delle Clausole Contrattuali Standard adottate dalla Commissione Europea o di altra garanzia adeguata ai sensi degli artt. 44 e ss. GDPR.
+    </div>
+    <p style="margin-top:.75rem">Una volta ricevuti, i dati sono trattati dal Titolare con strumenti elettronici, adottando misure tecniche e organizzative adeguate a garantirne la sicurezza, l'integrità e la riservatezza, e a prevenirne l'accesso non autorizzato.</p>
+  </section>
+
+  <!-- 6 -->
+  <section class="privacy-section" aria-labelledby="s6">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">6.</span>
+      <h2 class="privacy-section__title" id="s6">Periodo di conservazione</h2>
+    </div>
+    <p>I dati sono conservati per il tempo strettamente necessario a dare riscontro alla richiesta e, in ogni caso, per un periodo non superiore a <strong>[INDICARE PERIODO, es. 12 mesi]</strong> dall'ultimo contatto, salvo che la richiesta dia origine a un rapporto professionale, nel qual caso i dati saranno conservati secondo i termini di legge applicabili e oggetto di separata informativa. Decorso tale termine, i dati sono cancellati.</p>
+  </section>
+
+  <!-- 7 -->
+  <section class="privacy-section" aria-labelledby="s7">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">7.</span>
+      <h2 class="privacy-section__title" id="s7">Ambito di comunicazione e diffusione</h2>
+    </div>
+    <p>I dati non sono diffusi né ceduti a terzi. Possono essere trattati, nei limiti delle rispettive competenze, dal fornitore del servizio tecnico indicato al punto 5, nominato Responsabile del trattamento. I dati non sono soggetti a processi decisionali automatizzati né a profilazione.</p>
+  </section>
+
+  <!-- 8 -->
+  <section class="privacy-section" aria-labelledby="s8">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">8.</span>
+      <h2 class="privacy-section__title" id="s8">Diritti dell'interessato</h2>
+    </div>
+    <p>L'interessato può esercitare in qualsiasi momento i diritti previsti dagli artt. 15–22 GDPR, e in particolare:</p>
+    <ul>
+      <li>diritto di accesso ai propri dati;</li>
+      <li>diritto di rettifica;</li>
+      <li>diritto alla cancellazione ("diritto all'oblio");</li>
+      <li>diritto di limitazione del trattamento;</li>
+      <li>diritto di opposizione al trattamento;</li>
+      <li>diritto alla portabilità dei dati;</li>
+      <li>diritto di revocare il consenso in qualsiasi momento, senza pregiudicare la liceità del trattamento basata sul consenso prestato prima della revoca.</li>
+    </ul>
+    <p>Per esercitare tali diritti è possibile scrivere a: <a href="mailto:logodanielabiatta@gmail.com">logodanielabiatta@gmail.com</a>.</p>
+  </section>
+
+  <!-- 9 -->
+  <section class="privacy-section" aria-labelledby="s9">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">9.</span>
+      <h2 class="privacy-section__title" id="s9">Reclamo all'Autorità di controllo</h2>
+    </div>
+    <p>L'interessato che ritenga che il trattamento dei propri dati avvenga in violazione del GDPR ha diritto di proporre reclamo all'Autorità Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a>).</p>
+  </section>
+
+  <!-- 10 -->
+  <section class="privacy-section" aria-labelledby="s10">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">10.</span>
+      <h2 class="privacy-section__title" id="s10">Modifiche alla presente informativa</h2>
+    </div>
+    <p>Il Titolare si riserva di aggiornare la presente informativa. Eventuali modifiche saranno pubblicate su questa pagina con indicazione della data di aggiornamento.</p>
+  </section>
+
+  <div class="privacy-bottom">
+    <a href="index.html">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Torna alla home
+    </a>
+  </div>
+
+</main>
+
+<footer class="privacy-footer">
+  <p>© <script>document.write(new Date().getFullYear())</script> Dott.ssa Daniela Biatta – Logopedista · Via Boccaccio 79, 25034 Orzinuovi (BS)</p>
+</footer>
+
+</body>
+</html>
