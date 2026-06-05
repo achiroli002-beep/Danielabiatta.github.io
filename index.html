@@ -310,21 +310,6 @@
     .f-note { font-size: .7rem; color: var(--text-light); text-align: center; margin-top: .5rem; }
     @media (max-width: 760px) { .contact__grid { grid-template-columns: 1fr; } .f-row { grid-template-columns: 1fr; } }
 
-    /* === FAQ === */
-    .faq__header { text-align: center; max-width: 480px; margin: 0 auto 3rem; }
-    .faq__header p { color: var(--text-light); margin-top: .5rem; }
-    .faq__list { max-width: 760px; margin: 0 auto; }
-    .faq__item { border-bottom: 1px solid var(--border); }
-    .faq__btn { width: 100%; background: none; border: none; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1.25rem 0; cursor: pointer; text-align: left; font-family: var(--sans); font-size: .93rem; font-weight: 500; color: var(--text); transition: color var(--ease); line-height: 1.45; }
-    .faq__btn:hover, .faq__btn:focus-visible { color: var(--accent); outline: none; }
-    .faq__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-    .faq__chev { width: 20px; height: 20px; flex-shrink: 0; color: var(--accent); transition: transform var(--ease); margin-top: 2px; }
-    .faq__btn[aria-expanded="true"] .faq__chev { transform: rotate(180deg); }
-    .faq__panel { overflow: hidden; max-height: 0; transition: max-height .38s ease; }
-    .faq__panel.open { max-height: 400px; }
-    .faq__inner { padding-bottom: 1.25rem; }
-    .faq__inner p { font-size: .9rem; color: var(--text-light); line-height: 1.75; }
-
     /* === FOOTER === */
     .footer { background: var(--text); padding: 4.5rem 0 2rem; }
     .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(251,248,243,.1); margin-bottom: 2rem; }
@@ -366,7 +351,6 @@
       <li><a href="#metodo">Metodo</a></li>
       <li><a href="#dove">Dove lavoro</a></li>
       <li><a href="#risorse">Risorse</a></li>
-      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contatti" class="nav__cta">Prenota</a></li>
     </ul>
     <button class="nav__burger" id="burger" aria-label="Apri menu" aria-expanded="false" aria-controls="mob-menu">
@@ -383,7 +367,6 @@
     <li><a href="#metodo"     class="mob-link">Metodo</a></li>
     <li><a href="#dove"       class="mob-link">Dove lavoro</a></li>
     <li><a href="#risorse"    class="mob-link">Risorse</a></li>
-    <li><a href="#faq"        class="mob-link">FAQ</a></li>
     <li><a href="#contatti"   class="mob-link mob-cta">Prenota ora</a></li>
   </ul>
 </div>
@@ -496,7 +479,7 @@
         </button>
         <div class="accordion__panel" id="acc4" role="region">
           <div class="acc-inner"><span class="tag">Bambini · Adolescenti</span>
-            <p>Dislessia, disortografia, discalculia, disgrafia: le difficoltà di apprendimento hanno molte facce. Valuto e tratto i DSA in età evolutiva, collaborando con la famiglia e la scuola per costruire strategie efficaci e restituire il piacere di imparare.</p>
+            <p>Dislessia, disortografia, discalculia, disgrafia: le difficoltà di apprendimento hanno molte facce. Valuto e tratto i DSA in età evolutiva, collaborando con la famiglia e la scuola per costruire strategie efficaci.</p>
           </div>
         </div>
       </div>
@@ -507,18 +490,18 @@
         </button>
         <div class="accordion__panel" id="acc5" role="region">
           <div class="acc-inner"><span class="tag">Adulti · Professioni vocali</span>
-            <p>Raucedine cronica, voce affaticata, perdita della voce? Che tu sia insegnante, cantante o semplicemente stanco di soffrire, ti insegno a usare la voce in modo sano ed efficace, in sinergia con il foniatria quando necessario.</p>
+            <p>Raucedine cronica, voce affaticata, perdita della voce? Che tu sia insegnante, cantante o semplicemente stanco di affaticamento vocale, ti insegno a usare la voce in modo sano ed efficace, in sinergia con il foniatria quando necessario.</p>
           </div>
         </div>
       </div>
       <div class="accordion__item">
         <button class="accordion__btn" aria-expanded="false" aria-controls="acc6">
-          <span>Deglutizione atipica e disfagia</span>
+          <span>Terapia miofunzionale</span>
           <span class="acc-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </button>
         <div class="accordion__panel" id="acc6" role="region">
-          <div class="acc-inner"><span class="tag">Bambini · Adulti · Anziani</span>
-            <p>Dalla difficoltà di alimentazione del neonato alla disfagia nell'anziano (spesso post-ictus): valuto il profilo deglutitorio e costruisco un programma di trattamento sicuro e progressivo.</p>
+          <div class="acc-inner"><span class="tag">Bambini · Adulti</span>
+            <p>La deglutizione atipica, la respirazione orale e le disfunzioni della muscolatura oro-facciale possono influire sull'articolazione, sulla postura dentale e sullo sviluppo del linguaggio. La terapia miofunzionale rieduca la muscolatura di viso, bocca e lingua per ripristinare una funzione corretta, spesso in collaborazione con ortodontisti e altri specialisti. Terapia miofunzionale di supporto al lavoro ortodontico.</p>
           </div>
         </div>
       </div>
@@ -529,7 +512,6 @@
         </button>
         <div class="accordion__panel" id="acc7" role="region">
           <div class="acc-inner"><span class="tag">Adulti · Anziani</span>
-            <p>Dopo un ictus o un trauma cerebrale, ritrovare le parole può sembrare impossibile. Non lo è. Lavoro a fianco del paziente e della sua famiglia in un percorso paziente e costante, sfruttando la plasticità del cervello per riconquistare la comunicazione.</p>
           </div>
         </div>
       </div>
@@ -540,7 +522,17 @@
         </button>
         <div class="accordion__panel" id="acc8" role="region">
           <div class="acc-inner"><span class="tag">Bambini · Adulti</span>
-            <p>La comunicazione va molto oltre le parole. Nei disturbi dello spettro autistico e in caso di disabilità intellettive, propongo percorsi che valorizzano ogni canale comunicativo — verbale, gestuale, aumentativo e alternativo — per favorire la partecipazione attiva.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__btn" aria-expanded="false" aria-controls="acc9">
+          <span>Logopedia estetica</span>
+          <span class="acc-icon" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="accordion__panel" id="acc9" role="region">
+          <div class="acc-inner"><span class="tag">Adulti</span>
+            <p>Un ambito innovativo che si occupa della voce e della comunicazione verbale non per patologia, ma per migliorarne qualità, armonia ed espressività. Si rivolge a chi desidera affinare la propria voce, lavorare sull'articolazione, ridurre accenti regionali o comunicare con maggiore sicurezza ed efficacia nella vita quotidiana e professionale.</p>
           </div>
         </div>
       </div>
@@ -583,11 +575,29 @@
           </div>
           <div class="about__cred">
             <div class="cred-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M6 7h6M6 10h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="cred-text">
+              <strong>Insegnante di scuola primaria</strong>
+              <span>Istituto G. B. Albergoni, Crema</span>
+            </div>
+          </div>
+          <div class="about__cred">
+            <div class="cred-icon" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.2"/><path d="M9 5v4l2.5 2.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
             </div>
             <div class="cred-text">
-              <strong>Presidente dell'Albo dei Logopedisti di Brescia</strong>
+              <strong>Presidente della Commissione d'Albo dei Logopedisti di Brescia</strong>
               <span>TSRM-PSTRP</span>
+            </div>
+          </div>
+          <div class="about__cred">
+            <div class="cred-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M9 2C5.13 2 2 5.13 2 9s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7z" stroke="currentColor" stroke-width="1.2"/><path d="M9 6v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="cred-text">
+              <strong>Consigliere del Direttivo dell'Ordine TSRM-PSTRP di Brescia</strong>
+              <span>Carica istituzionale</span>
             </div>
           </div>
           <div class="about__cred">
@@ -606,12 +616,12 @@
         <h2 id="about-h2">Daniela Biatta,<br>logopedista</h2>
         <div class="about__bio" style="margin-top:1.25rem">
           <p>[TESTO BIO DA COMPILARE. Esempio: Mi chiamo Daniela Biatta e sono logopedista libera professionista dal 1994. Ho scelto questa professione perché credo nel potere della parola e nel diritto di ciascuno a comunicare in modo pieno e autentico.]</p>
-          <p>[Laureata con lode a Padova, ho dedicato oltre trent'anni a costruire con ogni paziente un percorso su misura, basato sull'ascolto e sul rispetto dei tempi individuali. Sono presidente dell'Albo dei Logopedisti di Brescia.]</p>
-          <p>[Nel mio studio porto l'entusiasmo per la ricerca e l'aggiornamento costante: seguo le linee guida più recenti e frequento regolarmente corsi di formazione avanzata.]</p>
+          <p>[Laureata con lode a Padova, ho dedicato oltre trent'anni a costruire con ogni paziente un percorso su misura, basato sull'ascolto e sul rispetto dei tempi individuali.]</p>
+          <p>Credo nell'importanza delle linee guida e dell'aggiornamento regolare attraverso corsi di formazione.</p>
         </div>
         <div class="about__box">
           <h4>La mia filosofia</h4>
-          <p>Credo in un approccio centrato sulla persona: non tratto sintomi, ma persone. Ogni percorso inizia dall'ascolto — delle difficoltà, certo, ma anche delle risorse e dei desideri di chi ho di fronte. Solo così è possibile costruire un cammino davvero efficace e significativo.</p>
+          <p>Credo in un approccio centrato sulla persona: non tratto sintomi, ma persone. Ogni percorso inizia dall'ascolto delle difficoltà, certo, ma anche delle risorse e dei desideri di chi ho di fronte. Solo così è possibile costruire un cammino davvero efficace e significativo.</p>
         </div>
         <div class="section-cta" style="text-align:left;margin-top:1.75rem">
           <a href="#contatti">Prenota il primo appuntamento <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -648,7 +658,7 @@
         <div class="tl-step">
           <div class="tl-num" aria-hidden="true">3</div>
           <div>
-            <p class="tl-title">Piano su misura</p>
+            <p class="tl-title">Bilancio logopedico</p>
             <p class="tl-desc">Un programma costruito sui tuoi punti di forza e le tue difficoltà specifiche.</p>
           </div>
         </div>
@@ -772,7 +782,7 @@
       <!-- GAVARDO -->
       <article class="place-card">
         <a class="place-icon-link"
-           href="https://maps.google.com/?q=[INDIRIZZO+GAVARDO]+Gavardo+BS"
+           href="https://maps.google.com/?q=Via+G.+Falcone+26+Gavardo+BS"
            target="_blank" rel="noopener noreferrer"
            aria-label="Apri in Google Maps: studio di Gavardo">
           <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.4"/><circle cx="11" cy="9" r="2.5" stroke="currentColor" stroke-width="1.4"/></svg>
@@ -780,9 +790,9 @@
         <p class="place-card__city">Gavardo</p>
         <h3>Studio Gavardo</h3>
         <address class="place-addr">
-          <a href="https://maps.google.com/?q=[INDIRIZZO+GAVARDO]+Gavardo+BS" target="_blank" rel="noopener noreferrer" aria-label="Vai a Google Maps">
+          <a href="https://maps.google.com/?q=Via+G.+Falcone+26+Gavardo+BS" target="_blank" rel="noopener noreferrer" aria-label="Vai a Google Maps">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.94 5 9 5 9s5-5.06 5-9c0-2.76-2.24-5-5-5z" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="6" r="1.75" stroke="currentColor" stroke-width="1.3"/></svg>
-            <strong>[INDIRIZZO GAVARDO], Gavardo (BS)</strong>
+            <strong>Via G. Falcone 26, Gavardo (BS)</strong>
           </a>
         </address>
         <div class="place-hours" aria-label="Orari studio Gavardo">
@@ -794,7 +804,7 @@
       <!-- SALÒ -->
       <article class="place-card">
         <a class="place-icon-link"
-           href="https://maps.google.com/?q=[INDIRIZZO+SALO]+Sal%C3%B2+BS"
+           href="https://maps.google.com/?q=Via+Golgi+4+Cunettone+di+Sal%C3%B2+BS"
            target="_blank" rel="noopener noreferrer"
            aria-label="Apri in Google Maps: studio di Salò">
           <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.4"/><circle cx="11" cy="9" r="2.5" stroke="currentColor" stroke-width="1.4"/></svg>
@@ -802,9 +812,9 @@
         <p class="place-card__city">Salò</p>
         <h3>Studio Salò</h3>
         <address class="place-addr">
-          <a href="https://maps.google.com/?q=[INDIRIZZO+SALO]+Sal%C3%B2+BS" target="_blank" rel="noopener noreferrer" aria-label="Vai a Google Maps">
+          <a href="https://maps.google.com/?q=Via+Golgi+4+Cunettone+di+Sal%C3%B2+BS" target="_blank" rel="noopener noreferrer" aria-label="Vai a Google Maps">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.94 5 9 5 9s5-5.06 5-9c0-2.76-2.24-5-5-5z" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="6" r="1.75" stroke="currentColor" stroke-width="1.3"/></svg>
-            <strong>[INDIRIZZO SALÒ], Salò (BS)</strong>
+            <strong>Via Golgi 4, Cunettone di Salò (BS)</strong>
           </a>
         </address>
         <div class="place-hours" aria-label="Orari studio Salò">
@@ -828,8 +838,9 @@
       <h2 id="risorse-h2">Risorse</h2>
       <p style="color:var(--text-light);margin-top:.5rem;font-size:.95rem">Strumenti professionali e materiali didattici che utilizzo e che puoi trovare in libreria.</p>
     </div>
-    <div class="reveal" style="margin-top:1rem">
-      <a href="https://www.lacompagniamassetti.it/shop/vari/suoni-e-lettere-volume-1/" target="_blank" rel="noopener noreferrer" class="book-card" aria-label="Suoni e Lettere Volume 1 – vai alla pagina del libro">
+    <div style="display:flex;flex-direction:column;gap:1.5rem;margin-top:1rem">
+
+    <a href="https://www.lacompagniamassetti.it/shop/vari/suoni-e-lettere-volume-1/" target="_blank" rel="noopener noreferrer" class="book-card" aria-label="Suoni e Lettere Volume 1 – vai alla pagina del libro">
         <div class="book-cover">
           <img src="https://www.lacompagniamassetti.it/wp-content/uploads/2024/09/Biatta-WEB-648x902.png" alt="Copertina Suoni e Lettere Volume 1 – Daniela Biatta" loading="lazy">
         </div>
@@ -843,6 +854,33 @@
           </span>
         </div>
       </a>
+    <a href="https://www.bimbisaniebelli.it/servizi-online/esperti-rispondono/chiedi-esperto" target="_blank" rel="noopener noreferrer" class="book-card" aria-label="Bimbi Sani e Belli – Chiedi all'esperto">
+        <div class="book-cover" style="background:var(--sand)">
+          <svg viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;padding:1.5rem">
+            <circle cx="90" cy="68" r="26" fill="#EAD8C4"/>
+            <circle cx="90" cy="62" r="20" stroke="#C08552" stroke-width="2"/>
+            <path d="M58 115c0-17.7 14.3-32 32-32s32 14.3 32 32" stroke="#C08552" stroke-width="2" stroke-linecap="round"/>
+            <rect x="108" y="38" width="48" height="36" rx="8" fill="#EAD8C4" stroke="#C08552" stroke-width="1.5"/>
+            <polygon points="108,60 96,68 110,65" fill="#EAD8C4" stroke="#C08552" stroke-width="1"/>
+            <circle cx="122" cy="56" r="3.5" fill="#C08552"/>
+            <circle cx="132" cy="56" r="3.5" fill="#C08552"/>
+            <circle cx="142" cy="56" r="3.5" fill="#C08552"/>
+            <rect x="50" y="148" width="80" height="7" rx="3.5" fill="#EAD8C4"/>
+            <rect x="60" y="163" width="60" height="5" rx="2.5" fill="#EAD8C4" opacity=".7"/>
+            <rect x="66" y="176" width="48" height="5" rx="2.5" fill="#EAD8C4" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="book-info">
+          <span class="book-label">Bimbi Sani e Belli</span>
+          <h3>Chiedi<br><span style="font-style:italic;color:var(--accent)">all'esperto</span></h3>
+          <p>Portale di riferimento per la salute dei bambini. Nella sezione "Chiedi all'esperto" puoi trovare risposte a dubbi su linguaggio, sviluppo e comunicazione, con il contributo di professionisti specializzati.</p>
+          <span class="book-link">
+            Visita il sito
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
     </div>
     <div class="section-cta" style="margin-top:2.5rem">
       <a href="#contatti">Prenota una consulenza <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -870,7 +908,7 @@
             </span>
             logodanielabiatta@gmail.com
           </a>
-          <a href="https://www.instagram.com/[PROFILO_INSTAGRAM]" target="_blank" rel="noopener noreferrer" class="contact__link">
+          <a href="https://www.instagram.com/logopedistadaniela/" target="_blank" rel="noopener noreferrer" class="contact__link">
             <span class="c-icon" aria-hidden="true">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
             </span>
@@ -917,61 +955,6 @@
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
-<section class="section" id="faq" aria-labelledby="faq-h2">
-  <div class="container">
-    <div class="faq__header reveal">
-      <span class="label">Hai dubbi?</span>
-      <h2 id="faq-h2">Domande frequenti</h2>
-      <p>Le domande che mi fanno più spesso. Se la tua non c'è, scrivimi.</p>
-    </div>
-    <div class="faq__list stagger">
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false" aria-controls="faq1">Quando mi devo rivolgere a un logopedista?
-          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="faq__panel" id="faq1" role="region">
-          <div class="faq__inner"><p>Qualunque difficoltà legata al linguaggio, alla voce, alla lettura e scrittura, alla deglutizione o alla comunicazione è un motivo valido per un consulto. Non aspettare: intervenire presto — specie per i bambini — fa quasi sempre una grande differenza.</p></div>
-        </div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false" aria-controls="faq2">Come si svolge la prima visita?
-          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="faq__panel" id="faq2" role="region">
-          <div class="faq__inner"><p>La prima visita dura circa 45–60 minuti. Inizia con un colloquio in cui mi racconti la situazione; seguono alcune prove di valutazione, adattate all'età e al motivo del consulto. Alla fine ti spiego quello che ho osservato e discutiamo insieme se e come procedere.</p></div>
-        </div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false" aria-controls="faq3">Serve l'impegnativa del medico?
-          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="faq__panel" id="faq3" role="region">
-          <div class="faq__inner"><p>No. Per una visita privata non è necessaria alcuna impegnativa o prescrizione medica. Puoi contattarmi direttamente. Se hai già documentazione clinica (diagnosi, relazioni precedenti), portala al primo appuntamento: sarà molto utile.</p></div>
-        </div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false" aria-controls="faq4">Da che età si può iniziare?
-          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="faq__panel" id="faq4" role="region">
-          <div class="faq__inner"><p>La logopedia non ha limiti d'età. Si può iniziare molto presto (anche nei primi mesi in caso di difficoltà di suzione/deglutizione) e continuare fino all'età avanzata. L'intervento precoce nel bambino ha spesso risultati molto positivi, ma non è mai troppo tardi per iniziare.</p></div>
-        </div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__btn" aria-expanded="false" aria-controls="faq5">Quanto dura un percorso logopedico?
-          <svg class="faq__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="faq__panel" id="faq5" role="region">
-          <div class="faq__inner"><p>Dipende dalla condizione trattata, dall'età e dalla frequenza delle sedute. Alcuni percorsi si concludono in pochi mesi; altri, per condizioni più complesse, possono essere più lunghi.</p></div>
-        </div>
-      </div>
-    </div>
-    <div class="section-cta section-cta--light" style="margin-top:2.5rem">
-      <a href="#contatti">Hai altre domande? Scrivimi <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
-</section>
 
 </main>
 
@@ -984,7 +967,7 @@
         <p class="footer__role">Logopedista Libera Professionista</p>
         <p class="footer__desc">32 anni di esperienza. Studi a Orzinuovi, Gavardo e Salò. Percorsi per bambini, adolescenti, adulti e anziani.</p>
         <div class="footer__socials" aria-label="Profili social">
-          <a href="https://www.instagram.com/[PROFILO_INSTAGRAM]" class="soc-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
+          <a href="https://www.instagram.com/logopedistadaniela/" class="soc-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
           </a>
           <a href="[LINK_FACEBOOK]" class="soc-link" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
@@ -1001,7 +984,6 @@
             <li><a href="#metodo">Il mio metodo</a></li>
             <li><a href="#dove">Dove lavoro</a></li>
             <li><a href="#risorse">Risorse</a></li>
-            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contatti">Contatti e prenota</a></li>
           </ul>
         </nav>
@@ -1011,13 +993,13 @@
         <p><a href="tel:+393337114624">333 711 4624</a></p>
         <p><a href="mailto:logodanielabiatta@gmail.com">logodanielabiatta@gmail.com</a></p>
         <p>Via Boccaccio 79, Orzinuovi (BS)</p>
-        <p>[Indirizzo Gavardo] (BS)</p>
-        <p>[Indirizzo Salò] (BS)</p>
+        <p>Via G. Falcone 26, Gavardo (BS)</p>
+        <p>Via Golgi 4, Cunettone di Salò (BS)</p>
       </div>
     </div>
     <div class="footer__bottom">
       <div class="footer__legal">
-        P.IVA: [P.IVA] &nbsp;·&nbsp; Iscritta all'Albo TSRM-PSTRP n. 27 · Brescia &nbsp;·&nbsp; Presidente Albo Logopedisti di Brescia<br>
+        P.IVA: [P.IVA] &nbsp;·&nbsp; Iscritta all'Albo TSRM-PSTRP n. 27 · Brescia &nbsp;·&nbsp; Presidente della Commissione d'Albo dei Logopedisti di Brescia<br>
         <strong style="color:rgba(251,248,243,.45)">Informativa Privacy (GDPR):</strong> i dati raccolti tramite il modulo di contatto sono trattati esclusivamente per rispondere alle richieste e non ceduti a terzi (Reg. UE 2016/679).
         <a href="privacy.html">Informativa completa</a>
       </div>
@@ -1099,21 +1081,6 @@ document.querySelectorAll('.accordion__btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const isOpen = btn.getAttribute('aria-expanded') === 'true';
     document.querySelectorAll('.accordion__btn').forEach(b => {
-      b.setAttribute('aria-expanded','false');
-      document.getElementById(b.getAttribute('aria-controls')).classList.remove('open');
-    });
-    if (!isOpen) {
-      btn.setAttribute('aria-expanded','true');
-      document.getElementById(btn.getAttribute('aria-controls')).classList.add('open');
-    }
-  });
-});
-
-/* FAQ accordion */
-document.querySelectorAll('.faq__btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const isOpen = btn.getAttribute('aria-expanded') === 'true';
-    document.querySelectorAll('.faq__btn').forEach(b => {
       b.setAttribute('aria-expanded','false');
       document.getElementById(b.getAttribute('aria-controls')).classList.remove('open');
     });
