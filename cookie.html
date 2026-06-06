@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Policy – Dott.ssa Daniela Biatta</title>
+  <meta name="description" content="Cookie Policy del sito danielabiatta.com – Dott.ssa Daniela Biatta, Logopedista. Il sito non utilizza cookie di profilazione né tracciamento.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    :root {
+      --sand: #F4EDE4;
+      --cream: #FBF8F3;
+      --white: #FEFCFA;
+      --text: #4A443D;
+      --text-light: #7A736B;
+      --accent: #C08552;
+      --accent-hover: #A5703F;
+      --accent-muted: #EAD8C4;
+      --border: #E0D5C8;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', -apple-system, sans-serif;
+      --ease: 0.3s ease;
+      --r-sm: 4px; --r-md: 12px; --r-lg: 24px; --r-full: 9999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--text); background: var(--cream); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(251,248,243,.96); backdrop-filter: blur(8px); box-shadow: 0 1px 0 var(--border); padding: 1.1rem 1.5rem; }
+    .nav__inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo { font-family: var(--serif); font-size: 1.05rem; color: var(--text); line-height: 1.2; }
+    .nav__logo span { display: block; font-family: var(--sans); font-size: .62rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--text-light); }
+    .back-link { display: inline-flex; align-items: center; gap: .45rem; font-size: .8rem; font-weight: 500; color: var(--accent); border: 1.5px solid var(--accent-muted); padding: .45rem 1rem; border-radius: var(--r-full); transition: background var(--ease), color var(--ease); }
+    .back-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .back-link svg { flex-shrink: 0; }
+
+    /* HERO */
+    .privacy-hero { background: var(--sand); padding: 4rem 1.5rem 3rem; border-bottom: 1px solid var(--border); }
+    .privacy-hero__inner { max-width: 860px; margin: 0 auto; }
+    .privacy-hero .label { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: .75rem; }
+    .privacy-hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.15; color: var(--text); margin-bottom: .75rem; }
+    .privacy-hero .meta { font-size: .82rem; color: var(--text-light); }
+
+    /* CONTENT */
+    .privacy-content { max-width: 860px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
+
+    .privacy-intro { font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+    .privacy-section { margin-bottom: 2.75rem; }
+    .privacy-section:last-of-type { margin-bottom: 0; }
+
+    .privacy-section__heading {
+      display: flex; align-items: baseline; gap: .85rem;
+      margin-bottom: 1rem; padding-bottom: .6rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .privacy-section__num {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 300;
+      color: var(--accent); line-height: 1; flex-shrink: 0;
+      min-width: 2rem;
+    }
+    .privacy-section__title {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 500;
+      color: var(--text); line-height: 1.3;
+    }
+
+    .privacy-section p { font-size: .95rem; color: var(--text); line-height: 1.8; margin-bottom: .75rem; }
+    .privacy-section p:last-child { margin-bottom: 0; }
+    .privacy-section ul { margin: .5rem 0 .75rem 0; padding-left: 1.25rem; }
+    .privacy-section ul li { font-size: .95rem; color: var(--text); line-height: 1.75; list-style: disc; }
+    .privacy-section a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .privacy-section a:hover { color: var(--accent-hover); }
+
+    .cookie-badge {
+      display: inline-block; background: var(--accent-muted); color: var(--accent);
+      font-size: .72rem; font-weight: 600; letter-spacing: .05em;
+      padding: .25rem .7rem; border-radius: var(--r-full); margin-bottom: .6rem;
+    }
+
+    /* BOTTOM CTA */
+    .privacy-bottom { text-align: center; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+    .privacy-bottom a {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--accent); color: #fff;
+      font-family: var(--sans); font-size: .88rem; font-weight: 500;
+      padding: .85rem 1.7rem; border-radius: var(--r-full);
+      transition: background var(--ease), transform var(--ease);
+    }
+    .privacy-bottom a:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+    /* FOOTER */
+    .privacy-footer { background: var(--text); padding: 1.5rem; text-align: center; }
+    .privacy-footer p { font-size: .72rem; color: rgba(251,248,243,.35); }
+    .privacy-footer a { color: rgba(251,248,243,.5); text-decoration: underline; text-underline-offset: 2px; }
+    .privacy-footer a:hover { color: rgba(251,248,243,.75); }
+  </style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Navigazione">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Torna alla home">
+      Dott.ssa Daniela Biatta
+      <span>Logopedista</span>
+    </a>
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Torna alla home
+    </a>
+  </div>
+</nav>
+
+<header class="privacy-hero">
+  <div class="privacy-hero__inner">
+    <span class="label">Trasparenza</span>
+    <h1>Cookie Policy</h1>
+    <p class="meta">Ai sensi delle Linee guida del Garante per la protezione dei dati personali in materia di cookie &nbsp;·&nbsp; Ultimo aggiornamento: 07/06/2026</p>
+  </div>
+</header>
+
+<main class="privacy-content">
+
+  <p class="privacy-intro">
+    La presente Cookie Policy descrive in modo chiaro e trasparente come il sito <strong>danielabiatta.com</strong> utilizza i cookie e le tecnologie similari di tracciamento.
+  </p>
+
+  <!-- 1 -->
+  <section class="privacy-section" aria-labelledby="c1">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">1.</span>
+      <h2 class="privacy-section__title" id="c1">Cosa sono i cookie</h2>
+    </div>
+    <p>I cookie sono piccoli file di testo che un sito web memorizza sul dispositivo dell'utente (computer, smartphone, tablet) durante la navigazione. Sono utilizzati per far funzionare il sito correttamente oppure per raccogliere informazioni sulla navigazione.</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="privacy-section" aria-labelledby="c2">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">2.</span>
+      <h2 class="privacy-section__title" id="c2">Cookie utilizzati da questo sito</h2>
+    </div>
+    <p>Il sito <strong>danielabiatta.com</strong> utilizza esclusivamente <strong>cookie tecnici strettamente necessari</strong> al funzionamento. Si tratta dei cookie indispensabili per permettere la corretta navigazione e l'utilizzo delle funzionalità richieste dall'utente (ad es. la gestione del modulo di contatto).</p>
+    <p>Questo sito <strong>non</strong> installa né utilizza:</p>
+    <ul>
+      <li>cookie di profilazione;</li>
+      <li>cookie analytics che identificano o tracciano il singolo utente;</li>
+      <li>cookie pubblicitari o di remarketing;</li>
+      <li>cookie di social network o pixel di terze parti.</li>
+    </ul>
+  </section>
+
+  <!-- 3 -->
+  <section class="privacy-section" aria-labelledby="c3">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">3.</span>
+      <h2 class="privacy-section__title" id="c3">Assenza di consenso preventivo</h2>
+    </div>
+    <p>Ai sensi delle <em>Linee guida in materia di cookie e altri strumenti di tracciamento</em> adottate dal Garante per la protezione dei dati personali (provvedimento del 10 giugno 2021, n. 231), i cookie tecnici strettamente necessari sono esclusi dall'obbligo di consenso preventivo dell'utente.</p>
+    <p>Poiché questo sito utilizza esclusivamente cookie di tale tipologia, <strong>non è presente e non è necessario alcun banner o meccanismo di raccolta del consenso per i cookie</strong>.</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="privacy-section" aria-labelledby="c4">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">4.</span>
+      <h2 class="privacy-section__title" id="c4">Statistiche di accesso aggregate</h2>
+    </div>
+    <p>Il sito raccoglie statistiche aggregate sulle visite tramite <strong>GoatCounter</strong>, uno strumento di analisi progettato nel rispetto della privacy che:</p>
+    <ul>
+      <li>non installa alcun cookie sul dispositivo dell'utente;</li>
+      <li>non traccia il singolo utente né raccoglie dati personali;</li>
+      <li>anonimizza gli indirizzi IP prima di qualsiasi elaborazione;</li>
+      <li>non condivide dati con terze parti per finalità pubblicitarie.</li>
+    </ul>
+    <p>Trattandosi di uno strumento privo di cookie e non idoneo all'identificazione individuale, non richiede consenso ai sensi della normativa vigente.</p>
+  </section>
+
+  <!-- 5 -->
+  <section class="privacy-section" aria-labelledby="c5">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">5.</span>
+      <h2 class="privacy-section__title" id="c5">Come gestire o disabilitare i cookie</h2>
+    </div>
+    <p>L'utente può in qualsiasi momento configurare il proprio browser per rifiutare tutti i cookie o per ricevere un avviso prima che un cookie venga memorizzato. Di seguito i link alle istruzioni dei principali browser:</p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/it/kb/protezione-antitracciamento-avanzata-firefox-desktop" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+      <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
+      <li><a href="https://support.microsoft.com/it-it/windows/eliminare-e-gestire-i-cookie-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+    </ul>
+    <p>Si noti che la disabilitazione dei cookie tecnici potrebbe compromettere il corretto funzionamento di alcune funzionalità del sito.</p>
+  </section>
+
+  <!-- 6 -->
+  <section class="privacy-section" aria-labelledby="c6">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">6.</span>
+      <h2 class="privacy-section__title" id="c6">Titolare del trattamento</h2>
+    </div>
+    <p>Il Titolare del trattamento dei dati personali è la <strong>Dott.ssa Daniela Biatta</strong> – P.IVA 01814310981.<br>Per qualsiasi richiesta: <a href="mailto:logodanielabiatta@gmail.com">logodanielabiatta@gmail.com</a>.<br>Per l'informativa completa sul trattamento dei dati: <a href="privacy.html">Informativa Privacy</a>.</p>
+  </section>
+
+  <!-- 7 -->
+  <section class="privacy-section" aria-labelledby="c7">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">7.</span>
+      <h2 class="privacy-section__title" id="c7">Modifiche alla presente policy</h2>
+    </div>
+    <p>Il Titolare si riserva di aggiornare la presente Cookie Policy in caso di modifiche normative o tecnologiche. Eventuali variazioni saranno pubblicate su questa pagina con indicazione della data di aggiornamento.</p>
+  </section>
+
+  <div class="privacy-bottom">
+    <a href="index.html">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Torna alla home
+    </a>
+  </div>
+
+</main>
+
+<footer class="privacy-footer">
+  <p>© <script>document.write(new Date().getFullYear())</script> Dott.ssa Daniela Biatta – Logopedista &nbsp;·&nbsp; <a href="privacy.html">Informativa Privacy</a> &nbsp;·&nbsp; <a href="cookie.html">Cookie Policy</a></p>
+</footer>
+
+</body>
+</html>
