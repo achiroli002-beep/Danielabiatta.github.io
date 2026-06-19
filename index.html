@@ -362,12 +362,23 @@
     /* === CURSORE A LETTERA + TASTI MAGNETICI === */
     .cursor-dot {
       position: fixed; top: 0; left: 0; z-index: 9999;
-      font-family: var(--serif); font-size: 1.15rem; font-weight: 500; line-height: 1;
+      font-family: var(--serif); font-size: 1.4rem; font-weight: 600; line-height: 1;
       color: var(--accent); opacity: 0; pointer-events: none; user-select: none;
       will-change: transform; transition: opacity .25s ease;
       text-shadow: 0 1px 6px rgba(74,68,61,.18);
     }
-    .cursor-dot.is-visible { opacity: .82; }
+    .cursor-dot.is-visible { opacity: .9; }
+    .cursor-ripple {
+      position: fixed; top: 0; left: 0; z-index: 9998;
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 1.5px solid var(--accent); pointer-events: none;
+      transform: translate(-50%, -50%) scale(.4);
+      animation: cursor-ripple .7s ease-out forwards;
+    }
+    @keyframes cursor-ripple {
+      0%   { opacity: .45; transform: translate(-50%, -50%) scale(.4); }
+      100% { opacity: 0;   transform: translate(-50%, -50%) scale(2.4); }
+    }
     html.cursor-custom, html.cursor-custom * { cursor: none; }
     html.cursor-custom input, html.cursor-custom textarea, html.cursor-custom select { cursor: auto; }
   </style>
@@ -1176,16 +1187,35 @@ form && form.addEventListener('submit', async e => {
   dot.textContent = current;
   document.body.appendChild(dot);
 
-  let active = false, shown = false;
+  let active = false, shown = false, rInit = false, rlx = 0, rly = 0;
+  const moOK = matchMedia('(prefers-reduced-motion: no-preference)').matches;
+  const RGAP = 26;
   const overField = t => !!(t && t.closest && t.closest('input, textarea, select'));
+  const ripple = (x, y) => {
+    const s = document.createElement('span');
+    s.className = 'cursor-ripple';
+    s.setAttribute('aria-hidden', 'true');
+    s.style.left = x + 'px';
+    s.style.top = y + 'px';
+    document.body.appendChild(s);
+    s.addEventListener('animationend', () => s.remove());
+  };
 
   window.addEventListener('pointermove', e => {
     if (e.pointerType && e.pointerType !== 'mouse') return;
     if (!active) { active = true; document.documentElement.classList.add('cursor-custom'); }
     dot.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0) translate(-50%,-50%)';
-    if (overField(e.target)) {
+    const field = overField(e.target);
+    if (field) {
       if (shown) { dot.classList.remove('is-visible'); shown = false; }
     } else if (!shown) { dot.classList.add('is-visible'); shown = true; }
+    if (moOK && !field) {
+      if (!rInit) { rlx = e.clientX; rly = e.clientY; rInit = true; }
+      else if (Math.hypot(e.clientX - rlx, e.clientY - rly) >= RGAP) {
+        ripple(e.clientX, e.clientY);
+        rlx = e.clientX; rly = e.clientY;
+      }
+    }
   }, { passive: true });
 
   document.addEventListener('mouseleave', () => { dot.classList.remove('is-visible'); shown = false; });
