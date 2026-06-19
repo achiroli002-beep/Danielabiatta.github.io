@@ -155,7 +155,7 @@
     .nav__mob.open { display: flex; opacity: 1; pointer-events: all; }
     .nav__mob a { font-family: var(--serif); font-size: 2.2rem; color: var(--text); transition: color var(--ease); }
     .nav__mob a:hover { color: var(--accent); }
-    .nav__mob .mob-cta { font-family: var(--sans) !important; font-size: 1rem !important; background: var(--accent); color: #fff !important; padding: .75rem 2rem; border-radius: var(--r-full); margin-top: .5rem; }
+    .nav__mob .mob-cta { font-family: var(--sans) !important; font-size: 1rem !important; background: var(--accent); color: #fff !important; padding: .75rem 2rem; border-radius: var(--r-full); margin-top: .5rem; transition: color var(--ease), transform var(--ease); }
 
     @media (max-width: 860px) { .nav__links { display: none; } .nav__burger { display: flex; } }
 
@@ -174,7 +174,7 @@
     .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
     .btn-primary { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent); color: #fff; font-family: var(--sans); font-size: .88rem; font-weight: 500; padding: .85rem 1.7rem; border-radius: var(--r-full); transition: background var(--ease), transform var(--ease), box-shadow var(--ease); border: none; cursor: pointer; }
     .btn-primary:hover, .btn-primary:focus-visible { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,133,82,.28); outline: none; }
-    .btn-ghost { font-size: .85rem; color: var(--text-light); border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color var(--ease), border-color var(--ease); }
+    .btn-ghost { font-size: .85rem; color: var(--text-light); border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color var(--ease), border-color var(--ease), transform var(--ease); }
     .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
     .hero__visual { display: flex; justify-content: flex-end; }
     .hero__frame { position: relative; width: 100%; max-width: 400px; }
@@ -203,7 +203,7 @@
     .cond__header { max-width: 580px; margin-bottom: 3rem; }
     .cond__header p { font-size: .95rem; color: var(--text-light); margin-top: .5rem; }
     .accordion__item { border-bottom: 1px solid var(--border); }
-    .accordion__btn { width: 100%; background: none; border: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; cursor: pointer; text-align: left; font-family: var(--serif); font-size: 1.15rem; color: var(--text); transition: color var(--ease); }
+    .accordion__btn { width: 100%; background: none; border: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; cursor: pointer; text-align: left; font-family: var(--serif); font-size: 1.15rem; color: var(--text); transition: color var(--ease), transform var(--ease); }
     .accordion__btn:hover, .accordion__btn:focus-visible { color: var(--accent); outline: none; }
     .accordion__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
     .acc-icon { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform var(--ease), background var(--ease), border-color var(--ease); color: var(--accent); }
@@ -358,6 +358,18 @@
     .footer__copy { font-size: .7rem; color: rgba(251,248,243,.28); white-space: nowrap; }
     @media (max-width: 780px) { .footer__top { grid-template-columns: 1fr 1fr; } .footer__top > *:first-child { grid-column: 1/-1; } }
     @media (max-width: 480px) { .footer__top { grid-template-columns: 1fr; } }
+
+    /* === CURSORE A LETTERA + TASTI MAGNETICI === */
+    .cursor-dot {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 500; line-height: 1;
+      color: var(--accent); opacity: 0; pointer-events: none; user-select: none;
+      will-change: transform; transition: opacity .25s ease;
+      text-shadow: 0 1px 6px rgba(74,68,61,.18);
+    }
+    .cursor-dot.is-visible { opacity: .82; }
+    html.cursor-custom, html.cursor-custom * { cursor: none; }
+    html.cursor-custom input, html.cursor-custom textarea, html.cursor-custom select { cursor: auto; }
   </style>
   <script data-goatcounter="https://alepinolaio.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -1145,6 +1157,63 @@ form && form.addEventListener('submit', async e => {
     btn.disabled = false; btn.textContent = 'Invia messaggio';
   }
 });
+
+/* Cursore a lettera casuale + tasti magnetici (solo mouse) */
+(function () {
+  if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let current = LETTERS[(Math.random() * 26) | 0];
+  const nextLetter = () => {
+    let l; do { l = LETTERS[(Math.random() * 26) | 0]; } while (l === current);
+    return (current = l);
+  };
+
+  /* --- Cursore = lettera --- */
+  const dot = document.createElement('div');
+  dot.className = 'cursor-dot';
+  dot.setAttribute('aria-hidden', 'true');
+  dot.textContent = current;
+  document.body.appendChild(dot);
+
+  let active = false, shown = false;
+  const overField = t => !!(t && t.closest && t.closest('input, textarea, select'));
+
+  window.addEventListener('pointermove', e => {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    if (!active) { active = true; document.documentElement.classList.add('cursor-custom'); }
+    dot.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0) translate(-50%,-50%)';
+    if (overField(e.target)) {
+      if (shown) { dot.classList.remove('is-visible'); shown = false; }
+    } else if (!shown) { dot.classList.add('is-visible'); shown = true; }
+  }, { passive: true });
+
+  document.addEventListener('mouseleave', () => { dot.classList.remove('is-visible'); shown = false; });
+
+  /* Nuova lettera a ogni click, ovunque */
+  window.addEventListener('pointerdown', e => {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    dot.textContent = nextLetter();
+  }, { passive: true });
+
+  /* --- Tasti magnetici (saltati se l'utente preferisce meno animazioni) --- */
+  if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const SEL = '.btn-primary, .btn-ghost, .nav__cta, .mob-cta, .section-cta a, .accordion__btn, .f-submit, .back-link';
+    const STRENGTH = 0.25, MAX = 8;
+    document.querySelectorAll(SEL).forEach(btn => {
+      btn.addEventListener('pointermove', e => {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        const r = btn.getBoundingClientRect();
+        let x = (e.clientX - r.left - r.width / 2) * STRENGTH;
+        let y = (e.clientY - r.top - r.height / 2) * STRENGTH;
+        const d = Math.hypot(x, y);
+        if (d > MAX) { x = x * MAX / d; y = y * MAX / d; }
+        btn.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+      });
+      btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+    });
+  }
+})();
 </script>
 </body>
 </html>

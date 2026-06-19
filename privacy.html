@@ -39,7 +39,7 @@
     .nav__inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
     .nav__logo { font-family: var(--serif); font-size: 1.05rem; color: var(--text); line-height: 1.2; }
     .nav__logo span { display: block; font-family: var(--sans); font-size: .62rem; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--text-light); }
-    .back-link { display: inline-flex; align-items: center; gap: .45rem; font-size: .8rem; font-weight: 500; color: var(--accent); border: 1.5px solid var(--accent-muted); padding: .45rem 1rem; border-radius: var(--r-full); transition: background var(--ease), color var(--ease); }
+    .back-link { display: inline-flex; align-items: center; gap: .45rem; font-size: .8rem; font-weight: 500; color: var(--accent); border: 1.5px solid var(--accent-muted); padding: .45rem 1rem; border-radius: var(--r-full); transition: background var(--ease), color var(--ease), transform var(--ease); }
     .back-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
     .back-link svg { flex-shrink: 0; }
 
@@ -104,6 +104,18 @@
     .privacy-footer p { font-size: .72rem; color: rgba(251,248,243,.35); }
     .privacy-footer a { color: rgba(251,248,243,.5); text-decoration: underline; text-underline-offset: 2px; }
     .privacy-footer a:hover { color: rgba(251,248,243,.75); }
+
+    /* === CURSORE A LETTERA + TASTI MAGNETICI === */
+    .cursor-dot {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 500; line-height: 1;
+      color: var(--accent); opacity: 0; pointer-events: none; user-select: none;
+      will-change: transform; transition: opacity .25s ease;
+      text-shadow: 0 1px 6px rgba(74,68,61,.18);
+    }
+    .cursor-dot.is-visible { opacity: .82; }
+    html.cursor-custom, html.cursor-custom * { cursor: none; }
+    html.cursor-custom input, html.cursor-custom textarea, html.cursor-custom select { cursor: auto; }
   </style>
 </head>
 <body>
@@ -276,5 +288,60 @@
   <p>© <script>document.write(new Date().getFullYear())</script> Dott.ssa Daniela Biatta – Logopedista &nbsp;·&nbsp; <a href="privacy.html">Informativa Privacy</a> &nbsp;·&nbsp; <a href="cookie.html">Cookie Policy</a></p>
 </footer>
 
+<script>
+/* Cursore a lettera casuale + tasti magnetici (solo mouse) */
+(function () {
+  if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let current = LETTERS[(Math.random() * 26) | 0];
+  const nextLetter = () => {
+    let l; do { l = LETTERS[(Math.random() * 26) | 0]; } while (l === current);
+    return (current = l);
+  };
+
+  const dot = document.createElement('div');
+  dot.className = 'cursor-dot';
+  dot.setAttribute('aria-hidden', 'true');
+  dot.textContent = current;
+  document.body.appendChild(dot);
+
+  let active = false, shown = false;
+  const overField = t => !!(t && t.closest && t.closest('input, textarea, select'));
+
+  window.addEventListener('pointermove', e => {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    if (!active) { active = true; document.documentElement.classList.add('cursor-custom'); }
+    dot.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0) translate(-50%,-50%)';
+    if (overField(e.target)) {
+      if (shown) { dot.classList.remove('is-visible'); shown = false; }
+    } else if (!shown) { dot.classList.add('is-visible'); shown = true; }
+  }, { passive: true });
+
+  document.addEventListener('mouseleave', () => { dot.classList.remove('is-visible'); shown = false; });
+
+  window.addEventListener('pointerdown', e => {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    dot.textContent = nextLetter();
+  }, { passive: true });
+
+  if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const SEL = '.btn-primary, .btn-ghost, .nav__cta, .mob-cta, .section-cta a, .accordion__btn, .f-submit, .back-link';
+    const STRENGTH = 0.25, MAX = 8;
+    document.querySelectorAll(SEL).forEach(btn => {
+      btn.addEventListener('pointermove', e => {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        const r = btn.getBoundingClientRect();
+        let x = (e.clientX - r.left - r.width / 2) * STRENGTH;
+        let y = (e.clientY - r.top - r.height / 2) * STRENGTH;
+        const d = Math.hypot(x, y);
+        if (d > MAX) { x = x * MAX / d; y = y * MAX / d; }
+        btn.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+      });
+      btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+    });
+  }
+})();
+</script>
 </body>
 </html>
