@@ -102,12 +102,14 @@
     /* === CURSORE A LETTERA + TASTI MAGNETICI === */
     .cursor-dot {
       position: fixed; top: 0; left: 0; z-index: 9999;
-      font-family: var(--serif); font-size: 1.4rem; font-weight: 600; line-height: 1;
-      color: var(--accent); opacity: 0; pointer-events: none; user-select: none;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: radial-gradient(circle at 34% 30%, var(--accent-light), var(--accent) 58%, var(--accent-hover));
+      border: 1.5px solid rgba(255, 255, 255, .85);
+      box-shadow: 0 2px 7px rgba(74, 68, 61, .4);
+      opacity: 0; pointer-events: none; user-select: none;
       will-change: transform; transition: opacity .25s ease;
-      text-shadow: 0 1px 6px rgba(74,68,61,.18);
     }
-    .cursor-dot.is-visible { opacity: .9; }
+    .cursor-dot.is-visible { opacity: 1; }
     .cursor-ripple {
       position: fixed; top: 0; left: 0; z-index: 9998;
       width: 18px; height: 18px; border-radius: 50%;
@@ -251,21 +253,13 @@
 </footer>
 
 <script>
-/* Cursore a lettera casuale + tasti magnetici (solo mouse) */
+/* Cursore a sfera + onde sonore + tasti magnetici (solo mouse) */
 (function () {
   if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-
-  const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  let current = LETTERS[(Math.random() * 26) | 0];
-  const nextLetter = () => {
-    let l; do { l = LETTERS[(Math.random() * 26) | 0]; } while (l === current);
-    return (current = l);
-  };
 
   const dot = document.createElement('div');
   dot.className = 'cursor-dot';
   dot.setAttribute('aria-hidden', 'true');
-  dot.textContent = current;
   document.body.appendChild(dot);
 
   let active = false, shown = false, rInit = false, rlx = 0, rly = 0;
@@ -303,7 +297,7 @@
 
   window.addEventListener('pointerdown', e => {
     if (e.pointerType && e.pointerType !== 'mouse') return;
-    dot.textContent = nextLetter();
+    if (moOK && !overField(e.target)) ripple(e.clientX, e.clientY);
   }, { passive: true });
 
   if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
