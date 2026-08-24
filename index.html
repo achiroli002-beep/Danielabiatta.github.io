@@ -293,6 +293,26 @@
     @media (max-width: 860px) { .places__grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 540px) { .places__grid { grid-template-columns: 1fr; } }
 
+    /* === MAPPA STUDI === */
+    .places__map-wrap { margin-top: 2.5rem; }
+    .places__map {
+      height: 420px; border-radius: var(--r-md); overflow: hidden;
+      border: 1px solid var(--border); background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .places__map-ph { font-size: .82rem; color: var(--text-light); text-align: center; padding: 1.5rem; }
+    .places__map-ph a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .places__map-note { margin-top: .7rem; font-size: .72rem; color: var(--text-light); text-align: center; }
+    .map-pin { display: block; filter: drop-shadow(0 2px 3px rgba(74,68,61,.35)); }
+    .leaflet-container { font-family: var(--sans); background: var(--sand); }
+    .leaflet-popup-content-wrapper { border-radius: var(--r-md); box-shadow: var(--shadow); }
+    .leaflet-popup-content { margin: .8rem .95rem; font-size: .8rem; line-height: 1.6; color: var(--text); }
+    .map-pop__city { display: block; font-family: var(--serif); font-size: 1.05rem; color: var(--text); }
+    .map-pop__addr { display: block; color: var(--text-light); margin-bottom: .45rem; }
+    .map-pop__link { color: var(--accent); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+    .leaflet-bar a { color: var(--text); }
+    @media (max-width: 540px) { .places__map { height: 320px; } }
+
     /* === RISORSE === */
     .risorse__header { max-width: 560px; margin-bottom: 3rem; }
     .book-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 2.5rem; display: grid; grid-template-columns: 180px 1fr; gap: 2.5rem; align-items: center; max-width: 760px; transition: box-shadow var(--ease); }
@@ -878,6 +898,16 @@
       </article>
 
     </div>
+
+    <!-- MAPPA DEI TRE STUDI -->
+    <div class="places__map-wrap reveal">
+      <div id="studi-map" class="places__map" role="region"
+           aria-label="Mappa con la posizione dei tre studi: Orzinuovi, Gavardo e Salò">
+        <p class="places__map-ph" id="studi-map-ph">Gli indirizzi dei tre studi sono elencati qui sopra, con il collegamento a Google Maps.</p>
+      </div>
+      <p class="places__map-note">Tocca un indicatore per vedere l'indirizzo e ottenere le indicazioni stradali.</p>
+    </div>
+
     <div class="section-cta">
       <a href="#contatti">Prenota il tuo appuntamento <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
@@ -1170,6 +1200,124 @@ form && form.addEventListener('submit', async e => {
     btn.disabled = false; btn.textContent = 'Invia messaggio';
   }
 });
+
+/* Mappa dei tre studi — OpenStreetMap via Leaflet.
+   Caricata solo quando la sezione entra in vista: nessun cookie, nessuna
+   richiesta esterna finche' l'utente non arriva qui. */
+(function () {
+  const el = document.getElementById('studi-map');
+  if (!el) return;
+
+  const STUDI = [
+    { citta: 'Orzinuovi', via: 'Via Boccaccio 79, Orzinuovi (BS)',
+      lat: 45.3948711, lng: 9.9326164,
+      url: 'https://maps.app.goo.gl/c7kDXrgw6QeQR1nU7' },
+    { citta: 'Gavardo', via: 'Via G. Falcone 26, Gavardo (BS)',
+      lat: 45.5899052, lng: 10.4422276,
+      url: 'https://maps.google.com/?q=Via+G.+Falcone+26+Gavardo+BS' },
+    { citta: 'Salò', via: 'Via Golgi 4, Cunettone di Salò (BS)',
+      lat: 45.5854700, lng: 10.5221944,
+      url: 'https://maps.google.com/?q=Via+Golgi+4+Cunettone+di+Sal%C3%B2+BS' }
+  ];
+
+  const CSS_URL = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+  const CSS_SRI = 'sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w==';
+  const JS_URL  = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  const JS_SRI  = 'sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==';
+
+  const ph = () => document.getElementById('studi-map-ph');
+  const say = t => { const p = ph(); if (p) p.textContent = t; };
+  const fail = () => say('Mappa non disponibile al momento. Trovi gli indirizzi dei tre studi qui sopra, con il collegamento a Google Maps.');
+
+  let started = false;
+
+  function init() {
+    if (!window.L) { fail(); return; }
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.textContent = '';
+
+    const map = L.map(el, {
+      scrollWheelZoom: false,
+      zoomAnimation: !reduce,
+      fadeAnimation: !reduce,
+      markerZoomAnimation: !reduce
+    });
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const icon = L.divIcon({
+      className: '',
+      html: '<svg class="map-pin" width="32" height="32" viewBox="0 0 22 22" fill="none" aria-hidden="true">' +
+            '<path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" fill="#C08552" stroke="#fff" stroke-width="1.3"/>' +
+            '<circle cx="11" cy="9" r="2.6" fill="#fff"/></svg>',
+      iconSize: [32, 32], iconAnchor: [16, 30], popupAnchor: [0, -28]
+    });
+
+    const punti = [];
+    STUDI.forEach(s => {
+      punti.push([s.lat, s.lng]);
+      L.marker([s.lat, s.lng], { icon: icon, title: 'Studio di ' + s.citta, alt: 'Studio di ' + s.citta })
+        .addTo(map)
+        .bindPopup(
+          '<span class="map-pop__city">' + s.citta + '</span>' +
+          '<span class="map-pop__addr">' + s.via + '</span>' +
+          '<a class="map-pop__link" href="' + s.url + '" target="_blank" rel="noopener noreferrer">Apri in Google Maps</a>'
+        );
+    });
+
+    /* Inquadra i tre studi. Ripetuto dopo invalidateSize: se il contenitore
+       viene misurato prima di essere a regime, la prima inquadratura sbaglia. */
+    const inquadra = () => {
+      map.invalidateSize();
+      map.fitBounds(punti, { padding: [45, 45] });
+    };
+    inquadra();
+    setTimeout(inquadra, 300);
+    /* Se il contenitore si assesta piu' tardi (font, layout, animazione di
+       comparsa) ri-inquadra, ma solo per i primi 2s: dopo comanda l'utente. */
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(inquadra);
+      ro.observe(el);
+      setTimeout(() => ro.disconnect(), 2000);
+    }
+
+    /* La rotella zooma solo dopo un click sulla mappa: non ruba lo scroll della pagina */
+    map.once('click', () => map.scrollWheelZoom.enable());
+  }
+
+  function load() {
+    if (started) return;
+    started = true;
+    say('Caricamento della mappa…');
+
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = CSS_URL;
+    link.integrity = CSS_SRI;
+    link.crossOrigin = 'anonymous';
+    document.head.appendChild(link);
+
+    const sc = document.createElement('script');
+    sc.src = JS_URL;
+    sc.integrity = JS_SRI;
+    sc.crossOrigin = 'anonymous';
+    sc.onload = init;
+    sc.onerror = fail;
+    document.head.appendChild(sc);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { io.disconnect(); load(); } });
+    }, { rootMargin: '300px' });
+    io.observe(el);
+  } else {
+    load();
+  }
+})();
 
 /* Cursore a sfera + onde sonore + tasti magnetici (solo mouse) */
 (function () {
