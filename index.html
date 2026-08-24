@@ -281,9 +281,15 @@
     .place-card__city { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
     .place-card p { font-size: .85rem; color: var(--text-light); }
     .place-addr { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-style: normal; font-size: .8rem; color: var(--text-light); }
-    .place-addr a { color: var(--text-light); transition: color var(--ease); display: flex; align-items: center; gap: .35rem; }
+    .place-addr a { color: var(--text-light); transition: color var(--ease); display: flex; align-items: flex-start; gap: .35rem; }
+    .place-addr a > svg { flex-shrink: 0; margin-top: 3px; }
     .place-addr a:hover { color: var(--accent); }
+    .place-addr a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--r-sm); }
     .place-addr strong { display: block; color: var(--text); font-size: .82rem; margin-bottom: 3px; }
+    .place-addr__go { display: inline-flex; align-items: center; gap: .28rem; color: var(--accent); font-size: .72rem; font-weight: 500; }
+    .place-addr__go svg { transition: transform var(--ease); }
+    .place-addr a:hover .place-addr__go, .place-addr a:focus-visible .place-addr__go { color: var(--accent-hover); }
+    .place-addr a:hover .place-addr__go svg { transform: translateX(3px); }
     .place-hours { margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--border); }
     .place-hours-row { display: flex; justify-content: space-between; font-size: .76rem; padding: .22rem 0; color: var(--text-light); }
     .place-hours-row .day { font-weight: 500; color: var(--text); }
@@ -292,30 +298,6 @@
     .place-wide p { font-size: .85rem; color: var(--text-light); }
     @media (max-width: 860px) { .places__grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 540px) { .places__grid { grid-template-columns: 1fr; } }
-
-    /* === MAPPA STUDI (SVG, nessuna dipendenza esterna) === */
-    .places__map-wrap { margin-top: 2.5rem; }
-    .svgmap { display: block; width: 100%; height: auto; border-radius: var(--r-md); border: 1px solid var(--border); }
-    .svgmap__bg { fill: var(--sand); }
-    .svgmap__land { fill: #FDFBF8; stroke: var(--border); stroke-width: 2; stroke-linejoin: round; }
-    .svgmap__water-a { fill: #DBE3E2; }
-    .svgmap__water { font-family: var(--serif); font-style: italic; font-size: 15px; fill: var(--accent); opacity: .6; text-anchor: middle; }
-    .svgmap__city-dot { fill: var(--text-light); }
-    .svgmap__city { font-family: var(--sans); font-size: 13px; font-weight: 500; fill: var(--text-light); }
-    .svgmap__studio-t { font-family: var(--sans); font-size: 17px; font-weight: 600; fill: var(--text); }
-    .svgmap__pin-body { fill: var(--accent); stroke: #fff; stroke-width: 1.3; }
-    .svgmap__pin-dot { fill: #fff; }
-    .svgmap__pin { transition: transform var(--ease); transform-origin: center; transform-box: fill-box; }
-    .svgmap__studio { cursor: pointer; }
-    .svgmap__studio:hover .svgmap__pin-body,
-    .svgmap__studio:focus-visible .svgmap__pin-body { fill: var(--accent-hover); }
-    .svgmap__studio:hover .svgmap__studio-t,
-    .svgmap__studio:focus-visible .svgmap__studio-t { fill: var(--accent-hover); }
-    .svgmap__studio:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--r-sm); }
-    .places__map-note { margin-top: .7rem; font-size: .72rem; color: var(--text-light); text-align: center; }
-    .places__map-credit { opacity: .75; }
-    .places__map-credit a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-    @media (max-width: 540px) { .svgmap__studio-t { font-size: 21px; } .svgmap__water, .svgmap__city { font-size: 16px; } }
 
     /* === RISORSE === */
     .risorse__header { max-width: 560px; margin-bottom: 3rem; }
@@ -845,9 +827,12 @@
         <p class="place-card__city">Orzinuovi</p>
         <h3>Studio principale</h3>
         <address class="place-addr">
-          <a href="https://maps.app.goo.gl/c7kDXrgw6QeQR1nU7" target="_blank" rel="noopener noreferrer" aria-label="Vai a Google Maps">
+          <a href="https://maps.app.goo.gl/c7kDXrgw6QeQR1nU7" target="_blank" rel="noopener noreferrer" aria-label="Come arrivare allo studio di Orzinuovi: apre Google Maps">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.94 5 9 5 9s5-5.06 5-9c0-2.76-2.24-5-5-5z" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="6" r="1.75" stroke="currentColor" stroke-width="1.3"/></svg>
-            <strong>Via Boccaccio 79, Orzinuovi (BS)</strong>
+            <span class="place-addr__body">
+              <strong>Via Boccaccio 79, Orzinuovi (BS)</strong>
+              <span class="place-addr__go">Come arrivare <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </span>
           </a>
         </address>
         <div class="place-hours" aria-label="Orari studio Orzinuovi">
@@ -868,9 +853,12 @@
         <p class="place-card__city">Gavardo</p>
         <h3>Studio Gavardo</h3>
         <address class="place-addr">
-          <a href="https://maps.google.com/?q=Via+G.+Falcone+26+Gavardo+BS" target="_blank" rel="noopener noreferrer" aria-label="Vai a Google Maps">
+          <a href="https://maps.google.com/?q=Via+G.+Falcone+26+Gavardo+BS" target="_blank" rel="noopener noreferrer" aria-label="Come arrivare allo studio di Gavardo: apre Google Maps">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.94 5 9 5 9s5-5.06 5-9c0-2.76-2.24-5-5-5z" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="6" r="1.75" stroke="currentColor" stroke-width="1.3"/></svg>
-            <strong>Via G. Falcone 26, Gavardo (BS)</strong>
+            <span class="place-addr__body">
+              <strong>Via G. Falcone 26, Gavardo (BS)</strong>
+              <span class="place-addr__go">Come arrivare <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </span>
           </a>
         </address>
         <div class="place-hours" aria-label="Orari studio Gavardo">
@@ -890,9 +878,12 @@
         <p class="place-card__city">Salò</p>
         <h3>Studio Salò</h3>
         <address class="place-addr">
-          <a href="https://maps.google.com/?q=Via+Golgi+4+Cunettone+di+Sal%C3%B2+BS" target="_blank" rel="noopener noreferrer" aria-label="Vai a Google Maps">
+          <a href="https://maps.google.com/?q=Via+Golgi+4+Cunettone+di+Sal%C3%B2+BS" target="_blank" rel="noopener noreferrer" aria-label="Come arrivare allo studio di Salò: apre Google Maps">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.94 5 9 5 9s5-5.06 5-9c0-2.76-2.24-5-5-5z" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="6" r="1.75" stroke="currentColor" stroke-width="1.3"/></svg>
-            <strong>Via Golgi 4, Cunettone di Salò (BS)</strong>
+            <span class="place-addr__body">
+              <strong>Via Golgi 4, Cunettone di Salò (BS)</strong>
+              <span class="place-addr__go">Come arrivare <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </span>
           </a>
         </address>
         <div class="place-hours" aria-label="Orari studio Salò">
@@ -903,43 +894,6 @@
 
     </div>
 
-    <!-- MAPPA DEI TRE STUDI (SVG inline: nessuna richiesta esterna) -->
-    <div class="places__map-wrap reveal">
-<svg viewBox="0 0 900 544" class="svgmap" role="img" aria-labelledby="svgmap-t svgmap-d">
-          <title id="svgmap-t">Mappa dei tre studi di logopedia</title>
-          <desc id="svgmap-d">Provincia di Brescia: lo studio di Orzinuovi nella bassa bresciana, quello di Gavardo in Valle Sabbia e quello di Salò sul lago di Garda.</desc>
-          <rect class="svgmap__bg" width="900" height="544"/>
-          <path class="svgmap__land" d="M36,212 44,214 47,221 53,224 50,241 55,246 51,253 61,259 60,271 67,275 61,282 70,288 75,312 86,317 91,333 82,359 88,364 87,368 83,368 87,377 83,382 88,388 91,403 91,411 87,414 91,427 86,434 88,438 82,442 84,448 89,450 85,463 87,474 82,478 89,481 85,486 95,504 108,505 112,509 116,503 120,505 119,513 126,519 133,520 132,529 139,527 163,540 176,556 178,550 176,557 180,564 191,562 190,571 202,579 208,577 214,580 225,592 235,587 244,590 247,584 249,591 255,590 258,596 263,596 269,603 273,597 277,598 279,614 284,623 293,624 293,630 298,634 304,631 319,633 334,640 339,637 349,645 358,639 361,643 373,644 373,653 379,652 383,646 386,657 399,657 410,663 414,659 408,656 414,654 411,649 419,648 413,645 412,639 414,642 423,636 436,638 441,623 453,626 456,626 457,635 460,634 459,643 467,646 465,651 474,655 473,659 495,664 498,670 501,669 503,677 509,673 506,683 510,686 504,691 533,692 532,683 549,677 543,655 550,654 546,642 550,634 557,641 566,641 568,631 565,625 570,625 571,631 583,635 581,630 585,628 580,627 577,620 582,606 579,595 590,572 593,574 595,567 611,563 611,554 617,540 615,529 634,530 635,521 639,521 639,524 652,523 650,510 656,511 654,475 650,460 646,449 636,442 653,410 636,395 637,392 643,397 670,400 683,398 697,402 710,412 732,438 743,433 763,446 781,436 793,443 807,444 811,437 820,439 824,433 827,409 831,405 837,404 836,397 825,394 834,379 826,374 831,362 825,362 824,358 806,366 805,360 806,357 811,360 825,357 825,353 830,351 824,340 810,130 871,56 949,-69 989,-140 1012,-168 1020,-184 1003,-192 982,-188 975,-190 970,-186 952,-200 941,-195 935,-182 924,-197 906,-199 898,-191 890,-190 879,-198 857,-182 835,-185 839,-172 832,-166 833,-158 826,-144 823,-142 817,-149 797,-148 769,-135 761,-123 746,-117 734,-117 717,-123 721,-128 714,-134 719,-142 718,-146 710,-147 727,-160 727,-165 708,-178 693,-173 687,-182 688,-190 693,-197 689,-208 692,-211 686,-221 689,-243 676,-255 675,-262 682,-269 677,-275 679,-279 687,-280 692,-286 691,-294 695,-301 693,-312 676,-325 676,-337 670,-342 668,-352 675,-367 674,-379 665,-377 660,-381 653,-379 639,-386 638,-394 644,-433 656,-448 667,-448 670,-453 670,-472 668,-477 670,-483 663,-490 673,-502 676,-512 702,-530 705,-542 725,-562 735,-592 734,-611 730,-616 731,-621 738,-626 741,-642 749,-652 738,-671 725,-684 732,-693 734,-707 753,-728 752,-745 764,-753 769,-765 759,-804 754,-804 743,-814 747,-822 762,-835 762,-840 748,-857 749,-874 732,-885 706,-898 700,-898 697,-886 683,-886 678,-897 672,-898 671,-906 656,-914 643,-910 630,-895 608,-887 600,-877 591,-872 591,-866 573,-841 558,-827 536,-825 527,-818 520,-822 509,-811 505,-806 504,-779 488,-766 484,-730 470,-722 472,-717 446,-704 420,-697 418,-680 372,-667 368,-650 351,-642 366,-606 360,-594 360,-571 356,-568 365,-562 366,-549 371,-548 370,-540 377,-532 365,-514 361,-498 363,-494 368,-491 385,-491 394,-482 405,-493 419,-486 417,-476 420,-474 422,-467 441,-469 445,-461 445,-454 453,-448 451,-443 439,-434 417,-433 390,-426 384,-420 382,-407 368,-397 371,-382 317,-360 309,-347 307,-330 290,-320 284,-311 292,-298 290,-290 303,-268 302,-259 323,-241 329,-241 344,-231 338,-220 339,-212 329,-202 324,-202 316,-191 311,-183 312,-177 301,-159 265,-136 251,-109 252,-84 265,-39 253,-10 268,16 250,34 217,43 186,40 176,41 162,51 149,46 139,48 129,73 124,75 120,70 114,69 114,78 101,97 90,133 86,136 82,133 84,129 75,124 72,130 64,125 60,133 49,135 48,141 50,145 53,143 55,156 53,163 44,162 41,168 43,182 40,184 39,190 43,194 36,200 38,207 36,212Z"/>
-          <path class="svgmap__water-a" d="M695,279 697,286 706,296 714,295 723,296 722,314 729,320 727,321 729,324 757,335 770,332 780,318 788,315 790,310 791,290 794,294 792,304 796,327 811,334 820,330 826,340 849,345 855,352 865,356 871,362 874,360 876,353 874,353 878,342 891,331 893,325 890,324 894,322 897,312 896,312 896,310 903,302 913,280 910,275 910,261 905,237 906,226 904,220 899,219 900,216 897,211 895,210 898,208 897,204 890,187 889,178 882,171 878,172 871,169 859,178 853,178 855,160 866,140 865,127 867,123 868,120 872,120 884,89 901,68 908,51 927,21 949,-21 959,-32 960,-42 965,-44 974,-55 978,-65 976,-68 974,-67 974,-73 985,-80 985,-90 989,-95 999,-123 1010,-130 1015,-141 1029,-153 1037,-187 1036,-191 1040,-201 1039,-208 1053,-227 1051,-230 1053,-235 1043,-241 1042,-242 1044,-244 1042,-247 1034,-247 1026,-253 1022,-253 1023,-255 1020,-255 1020,-258 1016,-258 1015,-240 1012,-236 1010,-225 1012,-216 1004,-198 1003,-186 1000,-179 978,-168 971,-162 972,-152 967,-147 965,-141 962,-140 956,-122 956,-114 949,-108 945,-99 929,-81 931,-76 915,-50 894,-36 878,-14 851,9 847,16 842,19 834,34 835,41 826,53 801,75 803,86 799,94 789,97 780,90 771,97 771,103 759,104 741,116 740,120 729,121 717,131 709,130 704,135 705,144 737,138 748,140 754,154 758,155 762,153 755,157 753,162 748,162 745,166 741,167 732,179 736,187 741,189 744,193 753,186 751,192 755,196 760,197 762,205 757,213 744,222 741,229 742,238 720,251 702,270 695,279Z"/>
-          <path class="svgmap__water-a" d="M156,50 165,57 175,51 180,46 195,49 198,48 199,53 205,59 215,59 220,57 220,61 220,58 219,61 218,60 217,61 220,63 220,62 221,64 227,61 223,56 225,57 224,56 227,55 228,58 231,56 239,59 245,50 260,47 262,43 267,42 270,40 268,37 271,27 277,26 278,30 282,29 291,19 293,13 297,10 301,-1 303,-28 297,-36 290,-38 284,-46 285,-58 282,-67 269,-82 262,-99 266,-108 267,-118 273,-117 278,-119 294,-131 299,-138 299,-147 292,-149 286,-157 279,-173 274,-169 266,-158 265,-153 263,-153 269,-147 263,-143 252,-141 253,-132 247,-120 250,-116 244,-116 246,-112 235,-103 230,-96 235,-72 244,-60 248,-46 244,-38 241,-17 243,-15 242,-12 243,-8 249,6 250,17 242,22 221,25 214,29 210,27 182,34 177,34 168,38 156,50Z"/>
-          <text x="812" y="250" class="svgmap__water">Lago di Garda</text>
-          <text x="243" y="40" class="svgmap__water">Lago d'Iseo</text>
-          <circle class="svgmap__city-dot" cx="403" cy="221" r="4.5"/>
-          <text x="392" y="210" text-anchor="end" class="svgmap__city">Brescia</text>
-          <a href="https://maps.app.goo.gl/c7kDXrgw6QeQR1nU7" target="_blank" rel="noopener noreferrer" class="svgmap__studio" aria-label="Studio di Orzinuovi: apri le indicazioni in Google Maps">
-            <g class="svgmap__pin" transform="translate(130 426)">
-              <path class="svgmap__pin-body" d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" transform="scale(1.7) translate(-11 -20)"/>
-              <circle class="svgmap__pin-dot" cx="0" cy="-18.7" r="4.4"/>
-            </g>
-            <text x="152" y="433" text-anchor="start" class="svgmap__studio-t">Orzinuovi</text>
-          </a>
-          <a href="https://maps.google.com/?q=Via+G.+Falcone+26+Gavardo+BS" target="_blank" rel="noopener noreferrer" class="svgmap__studio" aria-label="Studio di Gavardo: apri le indicazioni in Google Maps">
-            <g class="svgmap__pin" transform="translate(628 154)">
-              <path class="svgmap__pin-body" d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" transform="scale(1.7) translate(-11 -20)"/>
-              <circle class="svgmap__pin-dot" cx="0" cy="-18.7" r="4.4"/>
-            </g>
-            <text x="606" y="161" text-anchor="end" class="svgmap__studio-t">Gavardo</text>
-          </a>
-          <a href="https://maps.google.com/?q=Via+Golgi+4+Cunettone+di+Sal%C3%B2+BS" target="_blank" rel="noopener noreferrer" class="svgmap__studio" aria-label="Studio di Salò: apri le indicazioni in Google Maps">
-            <g class="svgmap__pin" transform="translate(706 160)">
-              <path class="svgmap__pin-body" d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" transform="scale(1.7) translate(-11 -20)"/>
-              <circle class="svgmap__pin-dot" cx="0" cy="-18.7" r="4.4"/>
-            </g>
-            <text x="728" y="167" text-anchor="start" class="svgmap__studio-t">Salò</text>
-          </a>
-        </svg>
-      <p class="places__map-note">Tocca un indicatore per aprire le indicazioni stradali. <span class="places__map-credit">Confini geografici: dati <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> (ODbL).</span></p>
-    </div>
 
     <div class="section-cta">
       <a href="#contatti">Prenota il tuo appuntamento <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
