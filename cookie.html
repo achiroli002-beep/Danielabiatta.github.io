@@ -140,7 +140,7 @@
 
     /* === CURSORE A LETTERA + TASTI MAGNETICI === */
     .cursor-dot {
-      position: fixed; top: 0; left: 0; z-index: 9999;
+      position: fixed; top: 0; left: 0; z-index: 2147483647;
       width: 18px; height: 18px; border-radius: 50%;
       background: radial-gradient(circle at 34% 30%, var(--accent-light), var(--accent) 58%, var(--accent-hover));
       border: 1.5px solid rgba(255, 255, 255, .85);
@@ -150,7 +150,7 @@
     }
     .cursor-dot.is-visible { opacity: 1; }
     .cursor-ripple {
-      position: fixed; top: 0; left: 0; z-index: 9998;
+      position: fixed; top: 0; left: 0; z-index: 2147483646;
       width: 18px; height: 18px; border-radius: 50%;
       border: 1.5px solid var(--accent); pointer-events: none;
       transform: translate(-50%, -50%) scale(.4);
@@ -162,6 +162,64 @@
     }
     html.cursor-custom, html.cursor-custom * { cursor: none; }
     html.cursor-custom input, html.cursor-custom textarea, html.cursor-custom select { cursor: auto; }
+
+    /* === BANNER COOKIE (CookieYes) NEI COLORI DEL SITO ===
+       CookieYes imposta i colori con stili in linea e inietta il proprio CSS
+       dopo questo: servono !important. Accetta e Rifiuta restano identici,
+       come chiede il Garante (nessuna scelta deve essere piu' evidente). */
+    .cky-consent-container .cky-consent-bar,
+    .cky-modal .cky-preference-center {
+      background-color: var(--white) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--r-md) !important;
+      box-shadow: 0 10px 34px rgba(74, 68, 61, .16) !important;
+    }
+    .cky-consent-container .cky-title,
+    .cky-modal .cky-preference-title {
+      font-family: var(--serif) !important;
+      font-weight: 500 !important;
+      font-size: 1.3rem !important;
+      color: var(--text) !important;
+    }
+    .cky-consent-container .cky-notice-des,
+    .cky-consent-container .cky-notice-des p,
+    .cky-modal .cky-preference-content-wrapper,
+    .cky-modal .cky-accordion-header-des,
+    .cky-modal .cky-accordion-header-des p { color: var(--text-light) !important; }
+    .cky-modal .cky-accordion-btn { color: var(--text) !important; }
+    .cky-consent-container .cky-btn,
+    .cky-modal .cky-btn {
+      border-radius: var(--r-full) !important;
+      font-family: var(--sans) !important;
+      font-weight: 500 !important;
+      transition: background-color var(--ease), border-color var(--ease), color var(--ease) !important;
+    }
+    .cky-consent-container .cky-btn-accept, .cky-consent-container .cky-btn-reject,
+    .cky-modal .cky-btn-accept, .cky-modal .cky-btn-reject {
+      background-color: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: #fff !important;
+    }
+    .cky-consent-container .cky-btn-accept:hover, .cky-consent-container .cky-btn-reject:hover,
+    .cky-modal .cky-btn-accept:hover, .cky-modal .cky-btn-reject:hover {
+      background-color: var(--accent-hover) !important;
+      border-color: var(--accent-hover) !important;
+    }
+    .cky-consent-container .cky-btn-customize,
+    .cky-modal .cky-btn-preferences {
+      background-color: transparent !important;
+      border-color: var(--accent) !important;
+      color: var(--accent-hover) !important;
+    }
+    .cky-consent-container .cky-btn-customize:hover,
+    .cky-modal .cky-btn-preferences:hover { background-color: var(--accent-muted) !important; }
+    .cky-consent-container .cky-btn:focus-visible,
+    .cky-modal .cky-btn:focus-visible { outline: 2px solid var(--accent) !important; outline-offset: 2px !important; }
+    .cky-modal .cky-show-desc-btn,
+    .cky-modal .cky-always-active { color: var(--accent-hover) !important; }
+    .cky-modal .cky-switch input[type="checkbox"]:checked { background: var(--accent) !important; }
+    .cky-modal .cky-footer-shadow { background: linear-gradient(180deg, rgba(254, 252, 250, 0) 0%, var(--white) 100%) !important; }
+    .cky-btn-revisit-wrapper { background-color: var(--accent) !important; }
   </style>
 </head>
 <body>
