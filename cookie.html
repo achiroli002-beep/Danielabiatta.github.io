@@ -112,6 +112,38 @@
     .privacy-inline-btn:hover { color: var(--accent-hover); }
     .privacy-inline-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
+    /* === COOKIE POLICY: sintesi e tabelle === */
+    .privacy-intro a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .privacy-intro a:hover { color: var(--accent-hover); }
+    .cookie-summary { background: var(--sand); border: 1px solid var(--border); border-radius: var(--r-md); padding: 1.35rem 1.5rem; margin: -1rem 0 3rem; }
+    .cookie-summary__title { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--text); margin-bottom: .55rem; }
+    .cookie-summary ul { padding-left: 1.15rem; }
+    .cookie-summary li { font-size: .92rem; line-height: 1.7; color: var(--text); list-style: disc; margin-bottom: .2rem; }
+    .cookie-table-wrap { margin: 1rem 0 1.4rem; border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; background: var(--white); }
+    .cookie-table { width: 100%; border-collapse: collapse; font-size: .85rem; line-height: 1.55; }
+    .cookie-table caption { caption-side: top; text-align: left; padding: .8rem 1rem; font-family: var(--serif); font-size: 1.08rem; font-weight: 500; color: var(--text); background: var(--cream); border-bottom: 1px solid var(--border); }
+    .cookie-table caption span { font-family: var(--sans); font-size: .64rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-hover); margin-left: .5rem; }
+    .cookie-table th { text-align: left; font-size: .66rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-light); padding: .6rem 1rem; border-bottom: 1px solid var(--border); }
+    .cookie-table td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+    .cookie-table tbody tr:last-child td { border-bottom: 0; }
+    .cookie-table td:first-child { width: 22%; }
+    .cookie-table td:nth-child(2) { width: 20%; }
+    .cookie-table td:last-child { width: 12%; white-space: nowrap; }
+    .cookie-table code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .78rem; background: var(--sand); color: var(--text); padding: .1rem .4rem; border-radius: var(--r-sm); white-space: nowrap; display: inline-block; margin: 0 .15rem .2rem 0; }
+    .cookie-meta { display: block; font-size: .74rem; color: var(--text-light); }
+    .cookie-footnote { font-size: .85rem !important; color: var(--text-light) !important; }
+    @media (max-width: 640px) {
+      .cookie-summary { margin-top: 0; padding: 1.1rem 1.15rem; }
+      .cookie-table thead { display: none; }
+      .cookie-table, .cookie-table tbody, .cookie-table tr, .cookie-table td { display: block; width: 100% !important; }
+      .cookie-table caption { display: block; }
+      .cookie-table caption span { display: block; margin: .2rem 0 0; }
+      .cookie-table tbody tr { padding: .45rem 0; border-bottom: 1px solid var(--border); }
+      .cookie-table tbody tr:last-child { border-bottom: 0; }
+      .cookie-table td { border: 0; padding: .3rem 1rem; white-space: normal !important; }
+      .cookie-table td::before { content: attr(data-label); display: block; font-size: .62rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-light); margin-bottom: .05rem; }
+    }
+
     .cookie-badge {
       display: inline-block; background: var(--accent-muted); color: var(--accent);
       font-size: .72rem; font-weight: 600; letter-spacing: .05em;
@@ -245,85 +277,141 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="privacy-hero__inner">
     <span class="label">Trasparenza</span>
     <h1>Cookie Policy</h1>
-    <p class="meta">Ai sensi delle Linee guida del Garante per la protezione dei dati personali in materia di cookie &nbsp;·&nbsp; Ultimo aggiornamento: 17/09/2026</p>
+    <p class="meta">Ai sensi dell'art. 13 del Regolamento (UE) 2016/679, dell'art. 122 del D.Lgs. 196/2003 e delle Linee guida del Garante del 10 giugno 2021 &nbsp;·&nbsp; Ultimo aggiornamento: 17/09/2026</p>
   </div>
 </header>
 
 <main class="privacy-content">
 
   <p class="privacy-intro">
-    La presente Cookie Policy descrive in modo chiaro e trasparente come il sito <strong>danielabiatta.com</strong> utilizza i cookie e le tecnologie similari di tracciamento.
+    La presente Cookie Policy descrive quali cookie e altri strumenti di tracciamento sono utilizzati dal sito <strong>danielabiatta.com</strong>, per quali finalità, con quali modalità e per quanto tempo, e spiega come l'utente può esprimere, modificare o revocare il proprio consenso. Integra l'<a href="privacy.html">Informativa Privacy</a> del sito.
   </p>
+
+  <aside class="cookie-summary" aria-labelledby="c-sintesi">
+    <h2 class="cookie-summary__title" id="c-sintesi">In sintesi</h2>
+    <ul>
+      <li>I <strong>cookie tecnici</strong>, necessari al funzionamento del sito, sono sempre attivi e non richiedono consenso.</li>
+      <li>I <strong>cookie di misurazione pubblicitaria</strong> di Google Ads vengono installati <strong>solo con il consenso</strong> dell'utente e servono esclusivamente a misurare l'efficacia degli annunci.</li>
+      <li>Il sito <strong>non utilizza</strong> cookie di profilazione né di remarketing, e nessun dato inserito nel modulo di contatto viene trasmesso a Google.</li>
+      <li>Il consenso può essere modificato o revocato in qualsiasi momento da <button type="button" class="cky-banner-element privacy-inline-btn">Preferenze cookie</button>.</li>
+    </ul>
+  </aside>
 
   <!-- 1 -->
   <section class="privacy-section" aria-labelledby="c1">
     <div class="privacy-section__heading">
       <span class="privacy-section__num" aria-hidden="true">1.</span>
-      <h2 class="privacy-section__title" id="c1">Cosa sono i cookie</h2>
+      <h2 class="privacy-section__title" id="c1">Titolare del trattamento</h2>
     </div>
-    <p>I cookie sono piccoli file di testo che un sito web memorizza sul dispositivo dell'utente (computer, smartphone, tablet) durante la navigazione. Sono utilizzati per far funzionare il sito correttamente oppure per raccogliere informazioni sulla navigazione.</p>
+    <p>Titolare del trattamento è la <strong>Dott.ssa Daniela Biatta</strong> – Logopedista<br>
+    P.IVA 01814310981 – Iscritta all'Albo TSRM-PSTRP n. 27 – Brescia<br>
+    Sede: Via Boccaccio 79, 25034 Orzinuovi (BS)<br>
+    Email: <a href="mailto:logodanielabiatta@gmail.com">logodanielabiatta@gmail.com</a> – Telefono: <a href="tel:+393337114624">333 711 4624</a></p>
   </section>
 
   <!-- 2 -->
   <section class="privacy-section" aria-labelledby="c2">
     <div class="privacy-section__heading">
       <span class="privacy-section__num" aria-hidden="true">2.</span>
-      <h2 class="privacy-section__title" id="c2">Cookie utilizzati da questo sito</h2>
+      <h2 class="privacy-section__title" id="c2">Cosa sono i cookie</h2>
     </div>
-    <p>Il sito <strong>danielabiatta.com</strong> utilizza due tipologie di cookie:</p>
+    <p>I cookie sono piccoli file di testo che i siti visitati inviano al dispositivo dell'utente (computer, smartphone, tablet), dove vengono memorizzati per essere poi ritrasmessi agli stessi siti nelle visite successive. Gli strumenti con funzioni analoghe, come pixel o identificativi memorizzati nel browser, sono equiparati ai cookie e rientrano nella presente policy.</p>
+    <p>I cookie possono essere:</p>
     <ul>
-      <li><strong>Cookie tecnici strettamente necessari</strong>, indispensabili al funzionamento del sito. Tra questi rientra il cookie che memorizza le tue scelte sui cookie, così da non riproporti il banner a ogni visita.</li>
-      <li><strong>Cookie di marketing per la misurazione degli annunci</strong>, installati da Google <strong>solo se presti il consenso</strong>. Servono a misurare l'efficacia degli annunci Google Ads: ad esempio, a sapere se una persona arrivata da un annuncio ha poi inviato una richiesta tramite il modulo di contatto.</li>
+      <li><strong>di prima parte</strong>, se installati direttamente dal sito visitato, oppure <strong>di terza parte</strong>, se installati da un soggetto diverso;</li>
+      <li><strong>di sessione</strong>, se vengono cancellati alla chiusura del browser, oppure <strong>persistenti</strong>, se restano memorizzati fino alla loro scadenza.</li>
     </ul>
-    <p>Questo sito <strong>non</strong> utilizza:</p>
-    <ul>
-      <li>cookie di profilazione;</li>
-      <li>cookie di remarketing, cioè per mostrarti annunci in base alle pagine che hai visitato;</li>
-      <li>cookie di statistica: le statistiche di visita sono raccolte senza cookie (vedi punto 5);</li>
-      <li>cookie di social network.</li>
-    </ul>
-    <p>L'elenco dettagliato e aggiornato dei singoli cookie, con la relativa durata, è consultabile in qualsiasi momento dalle <strong>preferenze cookie</strong> (vedi punto 3).</p>
   </section>
 
   <!-- 3 -->
   <section class="privacy-section" aria-labelledby="c3">
     <div class="privacy-section__heading">
       <span class="privacy-section__num" aria-hidden="true">3.</span>
-      <h2 class="privacy-section__title" id="c3">Il banner e il tuo consenso</h2>
+      <h2 class="privacy-section__title" id="c3">Tipologie di cookie utilizzati</h2>
     </div>
-    <p>Ai sensi delle <em>Linee guida in materia di cookie e altri strumenti di tracciamento</em> adottate dal Garante per la protezione dei dati personali (provvedimento del 10 giugno 2021, n. 231), i cookie tecnici non richiedono il consenso, mentre tutti gli altri possono essere installati <strong>solo dopo il tuo consenso</strong>.</p>
-    <p>Per questo, alla prima visita compare un banner che ti permette di:</p>
+    <p><strong>Cookie tecnici.</strong> Sono necessari al funzionamento del sito e all'erogazione dei servizi richiesti dall'utente, come la memorizzazione delle preferenze espresse sui cookie. Ai sensi dell'art. 122, comma 1, del D.Lgs. 196/2003 non richiedono il consenso dell'utente.</p>
+    <p><strong>Cookie di marketing per la misurazione delle conversioni.</strong> Sono installati da Google <strong>solo previo consenso</strong> dell'utente, per misurare l'efficacia delle campagne pubblicitarie Google Ads. Consentono di sapere se una persona che ha cliccato un annuncio ha poi contattato lo studio, ad esempio inviando il modulo di contatto o selezionando il numero di telefono. <strong>Nessun dato inserito nel modulo di contatto viene trasmesso a Google.</strong></p>
+    <p>Il sito <strong>non</strong> utilizza:</p>
     <ul>
-      <li><strong>accettare</strong> tutti i cookie;</li>
-      <li><strong>rifiutarli</strong>, mantenendo attivi soltanto quelli tecnici;</li>
-      <li><strong>personalizzare</strong> la scelta per singola categoria.</li>
+      <li>cookie di profilazione;</li>
+      <li>cookie di remarketing, volti a mostrare annunci sulla base della navigazione;</li>
+      <li>cookie di social network;</li>
+      <li>cookie di statistica: le statistiche di visita sono raccolte senza cookie (punto 5).</li>
     </ul>
-    <p>Finché non presti il consenso, nessun cookie di marketing viene installato e i tag pubblicitari di Google non vengono attivati. La tua scelta viene comunicata ai servizi Google tramite <em>Google Consent Mode</em>, che la rispettano.</p>
-    <p>Puoi cambiare idea o revocare il consenso in qualsiasi momento: <button type="button" class="cky-banner-element privacy-inline-btn">apri le preferenze cookie</button>, oppure usa il link «Preferenze cookie» in fondo a ogni pagina.</p>
   </section>
 
   <!-- 4 -->
   <section class="privacy-section" aria-labelledby="c4">
     <div class="privacy-section__heading">
       <span class="privacy-section__num" aria-hidden="true">4.</span>
-      <h2 class="privacy-section__title" id="c4">Servizi di terze parti</h2>
+      <h2 class="privacy-section__title" id="c4">Elenco dei cookie</h2>
     </div>
-    <p>Il banner e la misurazione degli annunci si basano sui seguenti servizi:</p>
-    <ul>
-      <li><strong>CookieYes</strong> – gestione del banner e registrazione delle scelte sui cookie. <a href="https://www.cookieyes.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Informativa privacy di CookieYes</a>.</li>
-      <li><strong>Google Tag Manager</strong> (Google Ireland Limited) – strumento che attiva i tag di Google in base al consenso espresso; di per sé non installa cookie. <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener noreferrer">Informativa privacy di Google</a>.</li>
-      <li><strong>Google Ads</strong> (Google Ireland Limited) – misurazione delle conversioni degli annunci, attiva solo con il tuo consenso. <a href="https://policies.google.com/technologies/partner-sites?hl=it" target="_blank" rel="noopener noreferrer">Come Google utilizza i dati dei siti che usano i suoi servizi</a>.</li>
-    </ul>
-    <p>Per gli eventuali trasferimenti di dati al di fuori dell'Unione europea, Google adotta le garanzie previste dal Regolamento UE 2016/679, come descritto nella propria informativa.</p>
+    <div class="cookie-table-wrap">
+      <table class="cookie-table">
+        <caption>Cookie tecnici <span>sempre attivi</span></caption>
+        <thead>
+          <tr><th scope="col">Nome</th><th scope="col">Fornitore</th><th scope="col">Finalità</th><th scope="col">Durata</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Nome"><code>cookieyes-consent</code></td>
+            <td data-label="Fornitore">CookieYes<span class="cookie-meta">prima parte</span></td>
+            <td data-label="Finalità">Memorizza le scelte espresse dall'utente tramite il banner, per rispettarle nelle visite successive</td>
+            <td data-label="Durata">12 mesi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cookie-table-wrap">
+      <table class="cookie-table">
+        <caption>Cookie di marketing <span>solo con consenso</span></caption>
+        <thead>
+          <tr><th scope="col">Nome</th><th scope="col">Fornitore</th><th scope="col">Finalità</th><th scope="col">Durata</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Nome"><code>_gcl_au</code></td>
+            <td data-label="Fornitore">Google<span class="cookie-meta">prima parte</span></td>
+            <td data-label="Finalità">Consente a Google Ads di attribuire agli annunci le conversioni avvenute sul sito</td>
+            <td data-label="Durata">90 giorni</td>
+          </tr>
+          <tr>
+            <td data-label="Nome"><code>_gcl_aw</code></td>
+            <td data-label="Fornitore">Google<span class="cookie-meta">prima parte</span></td>
+            <td data-label="Finalità">Memorizza l'identificativo del clic su un annuncio Google Ads (GCLID), per collegare l'annuncio all'eventuale contatto</td>
+            <td data-label="Durata">90 giorni</td>
+          </tr>
+          <tr>
+            <td data-label="Nome"><code>_gcl_gs</code> <code>_gcl_ag</code> <code>_gcl_gb</code></td>
+            <td data-label="Fornitore">Google<span class="cookie-meta">prima parte</span></td>
+            <td data-label="Finalità">Identificativi tecnici del clic sull'annuncio, utilizzati per attribuire correttamente le conversioni</td>
+            <td data-label="Durata">90 giorni</td>
+          </tr>
+          <tr>
+            <td data-label="Nome"><code>IDE</code></td>
+            <td data-label="Fornitore">Google<span class="cookie-meta">terza parte · doubleclick.net</span></td>
+            <td data-label="Finalità">Misurazione delle campagne pubblicitarie Google</td>
+            <td data-label="Durata">13 mesi</td>
+          </tr>
+          <tr>
+            <td data-label="Nome"><code>ar_debug</code></td>
+            <td data-label="Fornitore">Google<span class="cookie-meta">terza parte</span></td>
+            <td data-label="Finalità">Verifica del corretto funzionamento della misurazione delle conversioni</td>
+            <td data-label="Durata">90 giorni</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cookie-footnote">I cookie utilizzati da Google possono variare nel tempo: l'elenco aggiornato è disponibile nella pagina <a href="https://business.safety.google/adscookies/" target="_blank" rel="noopener noreferrer">Cookie utilizzati dai prodotti pubblicitari di Google</a>. La scelta dell'utente per ciascuna categoria si applica anche agli eventuali nuovi cookie della stessa categoria.</p>
   </section>
 
   <!-- 5 -->
   <section class="privacy-section" aria-labelledby="c5">
     <div class="privacy-section__heading">
       <span class="privacy-section__num" aria-hidden="true">5.</span>
-      <h2 class="privacy-section__title" id="c5">Statistiche di accesso aggregate</h2>
+      <h2 class="privacy-section__title" id="c5">Strumenti che non utilizzano cookie</h2>
     </div>
-    <p>Il sito raccoglie statistiche aggregate sulle visite tramite <strong>GoatCounter</strong>, uno strumento di analisi progettato nel rispetto della privacy che:</p>
+    <p><strong>Statistiche di visita – GoatCounter.</strong> Il sito raccoglie statistiche aggregate sulle visite tramite GoatCounter, uno strumento di analisi progettato nel rispetto della privacy che:</p>
     <ul>
       <li>non installa alcun cookie sul dispositivo dell'utente;</li>
       <li>non traccia il singolo utente né raccoglie dati personali;</li>
@@ -331,41 +419,97 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li>non condivide dati con terze parti per finalità pubblicitarie.</li>
     </ul>
     <p>Trattandosi di uno strumento privo di cookie e non idoneo all'identificazione individuale, non richiede consenso ai sensi della normativa vigente.</p>
+    <p><strong>Google Tag Manager.</strong> Strumento tecnico che gestisce l'attivazione dei tag di Google in base al consenso espresso dall'utente. Non installa cookie di per sé; per erogare il servizio tratta dati tecnici come l'indirizzo IP.</p>
   </section>
 
   <!-- 6 -->
   <section class="privacy-section" aria-labelledby="c6">
     <div class="privacy-section__heading">
       <span class="privacy-section__num" aria-hidden="true">6.</span>
-      <h2 class="privacy-section__title" id="c6">Come gestire o disabilitare i cookie</h2>
+      <h2 class="privacy-section__title" id="c6">Base giuridica del trattamento</h2>
     </div>
-    <p>Il modo più semplice per gestire i cookie di questo sito è <button type="button" class="cky-banner-element privacy-inline-btn">aprire le preferenze cookie</button>, dove puoi modificare o revocare il consenso in qualsiasi momento.</p>
-    <p>In aggiunta, puoi configurare il tuo browser per rifiutare tutti i cookie o per ricevere un avviso prima che un cookie venga memorizzato. Di seguito i link alle istruzioni dei principali browser:</p>
     <ul>
-      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
-      <li><a href="https://support.mozilla.org/it/kb/protezione-antitracciamento-avanzata-firefox-desktop" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
-      <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
-      <li><a href="https://support.microsoft.com/it-it/windows/eliminare-e-gestire-i-cookie-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+      <li><strong>Cookie tecnici:</strong> art. 122, comma 1, del D.Lgs. 196/2003, che li esonera dal consenso, e legittimo interesse del Titolare al corretto funzionamento del sito (art. 6, par. 1, lett. f, GDPR).</li>
+      <li><strong>Cookie di marketing:</strong> consenso dell'utente (art. 122, comma 1, del D.Lgs. 196/2003 e art. 6, par. 1, lett. a, GDPR).</li>
     </ul>
-    <p>Si noti che la disabilitazione dei cookie tecnici potrebbe compromettere il corretto funzionamento di alcune funzionalità del sito.</p>
+    <p>Il conferimento del consenso è facoltativo: il rifiuto non impedisce in alcun modo di navigare nel sito né di contattare lo studio.</p>
   </section>
 
   <!-- 7 -->
   <section class="privacy-section" aria-labelledby="c7">
     <div class="privacy-section__heading">
       <span class="privacy-section__num" aria-hidden="true">7.</span>
-      <h2 class="privacy-section__title" id="c7">Titolare del trattamento</h2>
+      <h2 class="privacy-section__title" id="c7">Come esprimere, modificare o revocare il consenso</h2>
     </div>
-    <p>Il Titolare del trattamento dei dati personali è la <strong>Dott.ssa Daniela Biatta</strong> – P.IVA 01814310981.<br>Per qualsiasi richiesta: <a href="mailto:logodanielabiatta@gmail.com">logodanielabiatta@gmail.com</a>.<br>Per l'informativa completa sul trattamento dei dati: <a href="privacy.html">Informativa Privacy</a>.</p>
+    <p>Alla prima visita un banner consente all'utente di:</p>
+    <ul>
+      <li><strong>accettare</strong> tutti i cookie;</li>
+      <li><strong>rifiutare</strong> tutti i cookie diversi da quelli tecnici;</li>
+      <li><strong>scegliere per singola categoria</strong>, tramite «Personalizza».</li>
+    </ul>
+    <p>Finché l'utente non presta il consenso sono attivi soltanto i cookie tecnici. Il semplice scorrimento della pagina non costituisce consenso.</p>
+    <p>La scelta viene memorizzata per 12 mesi, trascorsi i quali il banner viene riproposto. Può essere riproposto prima soltanto se cambiano in modo significativo le condizioni del trattamento, ad esempio con l'introduzione di nuovi strumenti di tracciamento.</p>
+    <p>L'utente può modificare o revocare il consenso in qualsiasi momento <button type="button" class="cky-banner-element privacy-inline-btn">aprendo le preferenze cookie</button> o tramite il link «Preferenze cookie» presente in fondo a ogni pagina. La revoca non pregiudica la liceità dei trattamenti effettuati prima della revoca stessa.</p>
+    <p><strong>Google Consent Mode.</strong> Il sito utilizza Google Consent Mode v2 in modalità base: i tag pubblicitari di Google non vengono attivati prima che l'utente abbia prestato il consenso, e la scelta espressa viene comunicata ai servizi Google, che la rispettano.</p>
+    <p><strong>Registro dei consensi.</strong> Per poter dimostrare il consenso, come richiesto dall'art. 7, par. 1, GDPR, le scelte espresse vengono registrate da CookieYes, associate a un identificativo univoco del consenso e alla data della scelta.</p>
   </section>
 
   <!-- 8 -->
   <section class="privacy-section" aria-labelledby="c8">
     <div class="privacy-section__heading">
       <span class="privacy-section__num" aria-hidden="true">8.</span>
-      <h2 class="privacy-section__title" id="c8">Modifiche alla presente policy</h2>
+      <h2 class="privacy-section__title" id="c8">Destinatari e trasferimento dei dati</h2>
     </div>
-    <p>Il Titolare si riserva di aggiornare la presente Cookie Policy in caso di modifiche normative o tecnologiche. Eventuali variazioni saranno pubblicate su questa pagina con indicazione della data di aggiornamento.</p>
+    <p>I dati raccolti tramite i cookie e gli strumenti descritti possono essere trattati dai seguenti soggetti:</p>
+    <ul>
+      <li><strong>CookieYes Limited</strong> – 3 Warren Yard, Warren Park, Wolverton Mill, Milton Keynes MK12 5NW, Regno Unito. Gestione del banner e del registro dei consensi, in qualità di responsabile del trattamento. <a href="https://www.cookieyes.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Informativa privacy</a>.</li>
+      <li><strong>Google Ireland Limited</strong> – Gordon House, Barrow Street, Dublino 4, Irlanda. Per Google Tag Manager agisce in qualità di responsabile del trattamento; per la misurazione delle conversioni di Google Ads agisce in qualità di titolare autonomo del trattamento. <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener noreferrer">Informativa privacy</a> · <a href="https://policies.google.com/technologies/partner-sites?hl=it" target="_blank" rel="noopener noreferrer">Come Google utilizza i dati dei siti che usano i suoi servizi</a>.</li>
+    </ul>
+    <p><strong>Trasferimenti al di fuori dello Spazio economico europeo.</strong> I dati trattati da Google possono essere trasferiti a Google LLC, negli Stati Uniti, sulla base della decisione di adeguatezza della Commissione europea del 10 luglio 2023 (EU-U.S. Data Privacy Framework), cui Google LLC aderisce, e delle ulteriori garanzie previste dagli artt. 44 e seguenti del GDPR. I dati trattati da CookieYes Limited nel Regno Unito sono trattati nel rispetto delle garanzie previste dagli stessi articoli.</p>
+  </section>
+
+  <!-- 9 -->
+  <section class="privacy-section" aria-labelledby="c9">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">9.</span>
+      <h2 class="privacy-section__title" id="c9">Periodo di conservazione</h2>
+    </div>
+    <p>I cookie restano memorizzati sul dispositivo dell'utente per la durata indicata nelle tabelle del punto 4, salvo cancellazione anticipata da parte dell'utente. Le registrazioni del consenso sono conservate per il tempo necessario a dimostrare la validità del consenso prestato.</p>
+  </section>
+
+  <!-- 10 -->
+  <section class="privacy-section" aria-labelledby="c10">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">10.</span>
+      <h2 class="privacy-section__title" id="c10">Diritti dell'interessato</h2>
+    </div>
+    <p>L'utente può esercitare in qualsiasi momento i diritti previsti dagli artt. 15–22 del GDPR – accesso, rettifica, cancellazione, limitazione del trattamento, opposizione e portabilità – nonché il diritto di revocare il consenso, scrivendo a <a href="mailto:logodanielabiatta@gmail.com">logodanielabiatta@gmail.com</a>. Per i trattamenti di cui Google è titolare autonomo, i diritti possono essere esercitati anche direttamente nei confronti di Google.</p>
+    <p>L'utente ha inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a>).</p>
+  </section>
+
+  <!-- 11 -->
+  <section class="privacy-section" aria-labelledby="c11">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">11.</span>
+      <h2 class="privacy-section__title" id="c11">Gestione dei cookie tramite il browser</h2>
+    </div>
+    <p>Oltre alle preferenze cookie del sito, l'utente può configurare il proprio browser per bloccare o cancellare i cookie. Di seguito le istruzioni dei principali browser:</p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/it/kb/protezione-antitracciamento-avanzata-firefox-desktop" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+      <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
+      <li><a href="https://support.microsoft.com/it-it/windows/eliminare-e-gestire-i-cookie-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+    </ul>
+    <p>La disabilitazione dei cookie tecnici può compromettere il corretto funzionamento di alcune funzionalità del sito.</p>
+  </section>
+
+  <!-- 12 -->
+  <section class="privacy-section" aria-labelledby="c12">
+    <div class="privacy-section__heading">
+      <span class="privacy-section__num" aria-hidden="true">12.</span>
+      <h2 class="privacy-section__title" id="c12">Modifiche alla presente Cookie Policy</h2>
+    </div>
+    <p>Il Titolare si riserva di aggiornare la presente Cookie Policy in caso di modifiche normative o tecnologiche. Le variazioni saranno pubblicate su questa pagina con indicazione della data di aggiornamento. Per il trattamento dei dati forniti tramite il modulo di contatto si rinvia all'<a href="privacy.html">Informativa Privacy</a>.</p>
   </section>
 
   <div class="privacy-bottom">
