@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Consent Mode v2: tutto negato per impostazione predefinita.
-       Deve stare PRIMA di Google Tag Manager: cosi' nessun tag Google puo'
-       salvare cookie o usare dati finche' il banner non registra un consenso. -->
+       Ordine obbligatorio (modalita' base): questo blocco -> banner CookieYes ->
+       Google Tag Manager. Cosi' nessun tag Google puo' salvare cookie o usare
+       dati finche' la persona non accetta dal banner. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -19,10 +20,14 @@
       functionality_storage: 'denied',
       personalization_storage: 'denied',
       security_storage: 'granted',
-      wait_for_update: 500
+      wait_for_update: 2000
     });
     gtag('set', 'ads_data_redaction', true);
   </script>
+
+  <!-- Start cookieyes banner -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/8d9f26b608fb33fe02fc8f5a08935563/script.js"></script>
+  <!-- End cookieyes banner -->
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -132,6 +137,9 @@
     .privacy-footer p { font-size: .72rem; color: rgba(251,248,243,.35); }
     .privacy-footer a { color: rgba(251,248,243,.5); text-decoration: underline; text-underline-offset: 2px; }
     .privacy-footer a:hover { color: rgba(251,248,243,.75); }
+    .footer-cookie-btn { background: none; border: 0; padding: 0; font: inherit; color: rgba(251,248,243,.5); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+    .footer-cookie-btn:hover { color: rgba(251,248,243,.75); }
+    .footer-cookie-btn:focus-visible { outline: 2px solid var(--accent-muted); outline-offset: 2px; border-radius: 2px; }
 
     /* === CURSORE A LETTERA + TASTI MAGNETICI === */
     .cursor-dot {
@@ -330,7 +338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <footer class="privacy-footer">
-  <p>© <script>document.write(new Date().getFullYear())</script> Dott.ssa Daniela Biatta – Logopedista &nbsp;·&nbsp; <a href="privacy.html">Informativa Privacy</a> &nbsp;·&nbsp; <a href="cookie.html">Cookie Policy</a></p>
+  <p>© <script>document.write(new Date().getFullYear())</script> Dott.ssa Daniela Biatta – Logopedista &nbsp;·&nbsp; <a href="privacy.html">Informativa Privacy</a> &nbsp;·&nbsp; <a href="cookie.html">Cookie Policy</a> &nbsp;·&nbsp; <button type="button" class="cky-banner-element footer-cookie-btn">Preferenze cookie</button></p>
 </footer>
 
 <script>
