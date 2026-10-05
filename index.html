@@ -356,11 +356,14 @@
     .contact__link:hover { color: var(--accent-light); }
     .c-icon { width: 40px; height: 40px; background: rgba(251,248,243,.08); border: 1px solid rgba(251,248,243,.12); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent-light); }
     /* form */
-    .form-wrap { background: var(--cream); border-radius: var(--r-lg); padding: 2rem; }
+    /* La sezione contatti e' scura e imposta il testo in crema: il riquadro del
+       modulo ha fondo crema, quindi deve riportare il testo al colore scuro,
+       altrimenti le etichette dei campi risultano invisibili. */
+    .form-wrap { background: var(--cream); color: var(--text); border-radius: var(--r-lg); padding: 2rem; }
     .form-wrap h3 { font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1.25rem; color: var(--text); }
     .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .f-group { margin-bottom: 1rem; }
-    .f-label { display: block; font-size: .78rem; font-weight: 500; margin-bottom: .35rem; }
+    .f-label { display: block; font-size: .78rem; font-weight: 500; margin-bottom: .35rem; color: var(--text); }
     .f-req { color: var(--accent); }
     .f-input, .f-area { width: 100%; padding: .72rem .95rem; border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--white); font-family: var(--sans); font-size: .9rem; color: var(--text); transition: border-color var(--ease), box-shadow var(--ease); -webkit-appearance: none; appearance: none; }
     .f-input:focus, .f-area:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,133,82,.12); }
