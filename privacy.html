@@ -4,6 +4,38 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Consent Mode v2: tutto negato per impostazione predefinita.
+       Ordine obbligatorio (modalita' base): questo blocco -> banner CookieYes ->
+       Google Tag Manager. Cosi' nessun tag Google puo' salvare cookie o usare
+       dati finche' la persona non accetta dal banner. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 2000
+    });
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+
+  <!-- Start cookieyes banner -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/2b6fa1ae8d40cc523cfb83f0c69e7e1f/script.js"></script>
+  <!-- End cookieyes banner -->
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MJS2V3PZ');</script>
+  <!-- End Google Tag Manager -->
   <title>Informativa Privacy – Dott.ssa Daniela Biatta</title>
   <meta name="description" content="Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR) – Dott.ssa Daniela Biatta, Logopedista.">
   <meta name="robots" content="noindex, nofollow">
@@ -105,6 +137,9 @@
     .privacy-footer p { font-size: .72rem; color: rgba(251,248,243,.35); }
     .privacy-footer a { color: rgba(251,248,243,.5); text-decoration: underline; text-underline-offset: 2px; }
     .privacy-footer a:hover { color: rgba(251,248,243,.75); }
+    .footer-cookie-btn { background: none; border: 0; padding: 0; font: inherit; color: rgba(251,248,243,.5); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+    .footer-cookie-btn:hover { color: rgba(251,248,243,.75); }
+    .footer-cookie-btn:focus-visible { outline: 2px solid var(--accent-muted); outline-offset: 2px; border-radius: 2px; }
 
     /* === CURSORE A LETTERA + TASTI MAGNETICI === */
     .cursor-dot {
@@ -131,9 +166,70 @@
     html.cursor-custom, html.cursor-custom * { cursor: none; }
     html.cursor-custom input, html.cursor-custom textarea, html.cursor-custom select { cursor: auto; }
 
+    /* === BANNER COOKIE (CookieYes) NEI COLORI DEL SITO ===
+       CookieYes imposta i colori con stili in linea e inietta il proprio CSS
+       dopo questo: servono !important. Accetta e Rifiuta restano identici,
+       come chiede il Garante (nessuna scelta deve essere piu' evidente). */
+    .cky-consent-container .cky-consent-bar,
+    .cky-modal .cky-preference-center {
+      background-color: var(--white) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--r-md) !important;
+      box-shadow: 0 10px 34px rgba(74, 68, 61, .16) !important;
+    }
+    .cky-consent-container .cky-title,
+    .cky-modal .cky-preference-title {
+      font-family: var(--serif) !important;
+      font-weight: 500 !important;
+      font-size: 1.3rem !important;
+      color: var(--text) !important;
+    }
+    .cky-consent-container .cky-notice-des,
+    .cky-consent-container .cky-notice-des p,
+    .cky-modal .cky-preference-content-wrapper,
+    .cky-modal .cky-accordion-header-des,
+    .cky-modal .cky-accordion-header-des p { color: var(--text-light) !important; }
+    .cky-modal .cky-accordion-btn { color: var(--text) !important; }
+    .cky-consent-container .cky-btn,
+    .cky-modal .cky-btn {
+      border-radius: var(--r-full) !important;
+      font-family: var(--sans) !important;
+      font-weight: 500 !important;
+      transition: background-color var(--ease), border-color var(--ease), color var(--ease) !important;
+    }
+    .cky-consent-container .cky-btn-accept, .cky-consent-container .cky-btn-reject,
+    .cky-modal .cky-btn-accept, .cky-modal .cky-btn-reject {
+      background-color: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: #fff !important;
+    }
+    .cky-consent-container .cky-btn-accept:hover, .cky-consent-container .cky-btn-reject:hover,
+    .cky-modal .cky-btn-accept:hover, .cky-modal .cky-btn-reject:hover {
+      background-color: var(--accent-hover) !important;
+      border-color: var(--accent-hover) !important;
+    }
+    .cky-consent-container .cky-btn-customize,
+    .cky-modal .cky-btn-preferences {
+      background-color: transparent !important;
+      border-color: var(--accent) !important;
+      color: var(--accent-hover) !important;
+    }
+    .cky-consent-container .cky-btn-customize:hover,
+    .cky-modal .cky-btn-preferences:hover { background-color: var(--accent-muted) !important; }
+    .cky-consent-container .cky-btn:focus-visible,
+    .cky-modal .cky-btn:focus-visible { outline: 2px solid var(--accent) !important; outline-offset: 2px !important; }
+    .cky-modal .cky-show-desc-btn,
+    .cky-modal .cky-always-active { color: var(--accent-hover) !important; }
+    .cky-modal .cky-switch input[type="checkbox"]:checked { background: var(--accent) !important; }
+    .cky-modal .cky-footer-shadow { background: linear-gradient(180deg, rgba(254, 252, 250, 0) 0%, var(--white) 100%) !important; }
+    .cky-btn-revisit-wrapper { background-color: var(--accent) !important; }
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJS2V3PZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <nav class="nav" aria-label="Navigazione">
   <div class="nav__inner">
@@ -152,7 +248,7 @@
   <div class="privacy-hero__inner">
     <span class="label">Dati personali</span>
     <h1>Informativa Privacy</h1>
-    <p class="meta">Ai sensi degli artt. 13 e 14 del Regolamento UE 2016/679 (GDPR) &nbsp;·&nbsp; Ultimo aggiornamento: 05/10/2026</p>
+    <p class="meta">Ai sensi degli artt. 13 e 14 del Regolamento UE 2016/679 (GDPR) &nbsp;·&nbsp; Ultimo aggiornamento: 07/10/2026</p>
   </div>
 </header>
 
@@ -234,7 +330,7 @@
     <p>Il modulo di contatto si avvale del servizio tecnico <strong>Web3Forms</strong>, che opera in qualità di Responsabile del trattamento e si occupa esclusivamente di trasmettere al Titolare i dati inseriti nel modulo, recapitandoli via email. Web3Forms non utilizza i dati per finalità proprie.</p>
     <p>Web3Forms agisce come Responsabile del trattamento sulla base di apposito DPA; eventuali trasferimenti fuori UE avvengono tramite Clausole Contrattuali Standard della Commissione UE (artt. 44 ss. GDPR).</p>
     <p style="margin-top:.75rem"><strong>Contatto tramite WhatsApp.</strong> Il sito mette a disposizione un collegamento per scrivere al Titolare su WhatsApp. Il servizio è fornito da <strong>WhatsApp Ireland Limited</strong> (gruppo Meta), che agisce quale titolare autonomo per i dati trattati attraverso la propria piattaforma. I messaggi sono protetti da cifratura end-to-end e non sono conservati sui server del fornitore dopo la consegna; restano però trattati dal fornitore i dati accessori quali numero di telefono, data e ora dei messaggi, informazioni sul dispositivo e indirizzo IP, anche al di fuori dell'Unione europea. Si invita a <strong>non trasmettere tramite WhatsApp informazioni dettagliate sullo stato di salute</strong>: tali aspetti saranno approfonditi in studio o telefonicamente. Per maggiori informazioni si rinvia all'<a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener noreferrer">informativa privacy di WhatsApp</a>.</p>
-    <p style="margin-top:.75rem"><strong>Cookie.</strong> Il sito non installa cookie; le statistiche di visita sono raccolte in forma aggregata e senza cookie. Per i dettagli si rinvia alla <a href="cookie.html">Cookie Policy</a>.</p>
+    <p style="margin-top:.75rem"><strong>Cookie e strumenti di misurazione.</strong> Per i cookie utilizzati dal sito, per il banner di raccolta del consenso e per la misurazione delle campagne pubblicitarie si rinvia alla <a href="cookie.html">Cookie Policy</a>.</p>
     <p style="margin-top:.75rem">Una volta ricevuti, i dati sono trattati dal Titolare con strumenti elettronici, adottando misure tecniche e organizzative adeguate a garantirne la sicurezza, l'integrità e la riservatezza, e a prevenirne l'accesso non autorizzato.</p>
   </section>
 
@@ -303,7 +399,7 @@
 </main>
 
 <footer class="privacy-footer">
-  <p>© <script>document.write(new Date().getFullYear())</script> Dott.ssa Daniela Biatta – Logopedista &nbsp;·&nbsp; <a href="privacy.html">Informativa Privacy</a> &nbsp;·&nbsp; <a href="cookie.html">Cookie Policy</a></p>
+  <p>© <script>document.write(new Date().getFullYear())</script> Dott.ssa Daniela Biatta – Logopedista &nbsp;·&nbsp; <a href="privacy.html">Informativa Privacy</a> &nbsp;·&nbsp; <a href="cookie.html">Cookie Policy</a> &nbsp;·&nbsp; <button type="button" class="cky-banner-element footer-cookie-btn">Preferenze cookie</button></p>
 </footer>
 
 <script>
